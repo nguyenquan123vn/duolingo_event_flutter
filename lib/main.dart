@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'screens/event_detail.dart';
 
+import 'logIn.dart';
+
 void main() {
-  runApp(MyApp());
+  //runApp(MyApp());
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner : false,
+    home: logIn(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
