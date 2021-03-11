@@ -6,7 +6,7 @@ const Color defaultBrandColor = Color.fromRGBO(28, 176, 246, 1);
 
 const Color defaultTextColor = Color.fromRGBO(56, 64, 71, 1);
 
-const Color washTextColor = Color.fromRGBO(124, 136, 148, 1);
+const Color washTextColor = Color.fromRGBO(124, 136, 148, 1); // Can use for input label
 
 const Color borderColor = Color.fromRGBO(235, 236, 237, 1);
 
