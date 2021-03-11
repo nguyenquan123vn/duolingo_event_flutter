@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
-import '../event_details/event_detail.dart';
+// import './screens/event_details/event_detail.dart';
 
-class Login extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _Login createState() => _Login();
+  _SignUp createState() => _SignUp();
 }
 
-class _Login extends State<Login> {
+class _SignUp extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,9 +18,31 @@ class _Login extends State<Login> {
             Container(
               padding: EdgeInsets.all(10),
               child: Text(
-                "Login",
+                "Create your profile",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: SizedBox(
+                height: 50,
+                width: 350,
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: "Age"),
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: SizedBox(
+                height: 50,
+                width: 350,
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: "Name"),
                 ),
               ),
             ),
@@ -51,15 +73,7 @@ class _Login extends State<Login> {
               child: SizedBox(
                 height: 35,
                 width: 350,
-                child: ElevatedButton(child: Text("LOGIN"), onPressed: () {}),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(5),
-              child: SizedBox(
-                height: 35,
-                width: 350,
-                child: ElevatedButton(child: Text("SIGN UP"), onPressed: () {}),
+                child: ElevatedButton(child: Text("CREATE ACCOUNT"), onPressed: () {}),
               ),
             ),
             Row(

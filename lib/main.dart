@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'event_detail.dart';
+import './screens/login/signup.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: Dashboard(),
+      home: SignUp(),
     );
   }
 }
