@@ -1,16 +1,13 @@
-# duolingo_event_app
+# Duolingo Event Flutter
 
-A new Flutter project.
+Duolingo Events Flutter App
 
-## Getting Started
+A mobile version clone of the website: https://events.duolingo.com/ written in Flutter.
 
-This project is a starting point for a Flutter application.
+API repo: TBA
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+# Duolingo Events
+Duolingo Events is a software that small language gatherings are hosted by fluent speakers (event organizers) in a fun and relaxed environment where language learners around the world can connect and learn together easier.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Some demo screens:
