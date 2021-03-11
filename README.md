@@ -13,5 +13,5 @@ Duolingo Events is a software that small language gatherings are hosted by fluen
 # Some demo screens:
 | <img src="https://github.com/nguyenquan123vn/duolingo_event_flutter/blob/master/assets/Screenshot/All_events.PNG" width="200"> | <img src="https://github.com/nguyenquan123vn/duolingo_event_flutter/blob/master/assets/Screenshot/Event_details.PNG" width="200"> | <img src="https://github.com/nguyenquan123vn/duolingo_event_flutter/blob/master/assets/Screenshot/Login.PNG" width="200"> | <img src="https://github.com/nguyenquan123vn/duolingo_event_flutter/blob/master/assets/Screenshot/signin.PNG" width="200">
 | --- | --- | --- | --- |
-| Home Page Screen | Event Details Screen | Login Screen | Sign in Screen
+| Home Page Screen | Event Details Screen | Login Screen | Sign up Screen
 
