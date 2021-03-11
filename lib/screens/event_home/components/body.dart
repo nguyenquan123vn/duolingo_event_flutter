@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../global/style.dart';
-import 'divider.dart';
 import 'dropdownBar.dart';
 import 'eventTag.dart';
 import 'toggleBtn.dart';
@@ -37,7 +36,6 @@ class Body extends StatelessWidget {
             ],
           )),
           SizedBox(height: 16.0, width: 16.0),
-          Divider(),
           SizedBox(height: 16.0, width: 8.0),
           Container(
               height: 416.0,
