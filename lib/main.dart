@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'event_detail.dart';
+import 'screens/event_detail.dart';
 
 void main() {
   runApp(MyApp());
