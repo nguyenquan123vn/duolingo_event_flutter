@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
-import '../event_details/event_detail.dart';
 
 class Login extends StatefulWidget {
   @override
