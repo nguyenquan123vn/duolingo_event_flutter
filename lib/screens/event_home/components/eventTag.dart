@@ -41,7 +41,7 @@ class EventTag extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("${date} - $timeStart - $timeEnd", style: defaultBoldWashTextStyle),
+                  Text("$date - $timeStart - $timeEnd", style: defaultBoldWashTextStyle),
                   Text(title, style: defaultBoldTextStyle),
                   Text(proficiency, style: defaultTextStyle),
                   Text("$spotLeft spots left", style: defaultBoldTextStyle)

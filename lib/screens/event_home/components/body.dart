@@ -13,19 +13,14 @@ class Body extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 32.0),
       child: Container(
         child: Column(children: [
-          Container(
-              color: defaultBrandColor, width: double.infinity, height: 64.0),
-          SizedBox(height: 16.0, width: 8.0),
-          Container(
-              width: double.infinity,
-              height: 28.0,
-              child: Center(
-                  child:
-                      Text("Duolingo Online Events", style: headerTextStyle))),
-          SizedBox(height: 8.0, width: 8.0),
-          DropdownBar(title: "ALL LANGUAGES"),
-          SizedBox(height: 8.0, width: 8.0),
-          DropdownBar(title: "ALL LEVELS"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(child: DropdownBar(type: "LANGUAGE")),
+              SizedBox(width: 8.0),
+              Expanded(child: DropdownBar(type: "PROFICIENCY")),
+            ],
+          ),
           SizedBox(height: 16.0, width: 16.0),
           Container(
               child: Row(
@@ -36,37 +31,45 @@ class Body extends StatelessWidget {
             ],
           )),
           SizedBox(height: 16.0, width: 16.0),
-          SizedBox(height: 16.0, width: 8.0),
-          Container(
-              height: 416.0,
-              width: double.infinity,
-              child: Column(
-                children: [
-                  EventTag(
-                      title: "New Class Added",
-                      proficiency: "Beginner",
-                      spotLeft: "30",
-                      date: "THU, MAR 4",
-                      timeStart: "5:00 PM",
-                      timeEnd: "6:00 PM"),
-                  SizedBox(height: 8.0, width: 8.0),
-                  EventTag(
-                      title: "New Class Added",
-                      proficiency: "Beginner",
-                      spotLeft: "30",
-                      date: "THU, MAR 4",
-                      timeStart: "5:00 PM",
-                      timeEnd: "6:00 PM"),
-                  SizedBox(height: 8.0, width: 8.0),
-                  EventTag(
-                      title: "New Class Added",
-                      proficiency: "Beginner",
-                      spotLeft: "30",
-                      date: "THU, MAR 4",
-                      timeStart: "5:00 PM",
-                      timeEnd: "6:00 PM"),
-                ],
-              ))
+          Expanded(
+            child: Container(
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    EventTag(
+                        title: "New Class Added",
+                        proficiency: "Beginner",
+                        spotLeft: "30",
+                        date: "THU, MAR 4",
+                        timeStart: "5:00 PM",
+                        timeEnd: "6:00 PM"),
+                    SizedBox(height: 8.0, width: 8.0),
+                    EventTag(
+                        title: "New Class Added",
+                        proficiency: "Beginner",
+                        spotLeft: "30",
+                        date: "THU, MAR 4",
+                        timeStart: "5:00 PM",
+                        timeEnd: "6:00 PM"),
+                    SizedBox(height: 8.0, width: 8.0),
+                    EventTag(
+                        title: "New Class Added",
+                        proficiency: "Beginner",
+                        spotLeft: "30",
+                        date: "THU, MAR 4",
+                        timeStart: "5:00 PM",
+                        timeEnd: "6:00 PM"),
+                    SizedBox(height: 8.0, width: 8.0),
+                    EventTag(
+                        title: "New Class Added",
+                        proficiency: "Beginner",
+                        spotLeft: "30",
+                        date: "THU, MAR 4",
+                        timeStart: "5:00 PM",
+                        timeEnd: "6:00 PM"),
+                  ],
+                )),
+          )
         ]),
       ),
     );
