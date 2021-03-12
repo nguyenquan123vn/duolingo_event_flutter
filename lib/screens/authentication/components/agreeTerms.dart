@@ -14,7 +14,7 @@ class AgreeTermsContainer extends StatelessWidget {
       child: Container(
         width: 243.0,
         child: Text(_statement,
-            textAlign: TextAlign.center, style: defaultTextStyle),
+            textAlign: TextAlign.center, style: defaultParaStyle),
       ),
     );
   }
