@@ -1,4 +1,3 @@
-import 'package:duolingo_event_app/global/widget/appBar.dart';
 import 'package:duolingo_event_app/global/widget/button.dart';
 import 'package:flutter/material.dart';
 import '../../global/style.dart';

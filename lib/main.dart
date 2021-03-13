@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:duolingo_event_app/screens/login/signup.dart';
-import 'package:duolingo_event_app/screens/login/logIn.dart';
+// import 'package:duolingo_event_app/screens/login/signup.dart';
+// import 'package:duolingo_event_app/screens/login/logIn.dart';
 import 'package:duolingo_event_app/screens/event_details/event_detail.dart';
 import 'package:duolingo_event_app/screens/event_home/event_home_screen.dart';
 
