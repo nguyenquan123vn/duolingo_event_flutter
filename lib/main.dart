@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:duolingo_event_app/screens/login/signup.dart';
-// import 'package:duolingo_event_app/screens/login/logIn.dart';
-import 'package:duolingo_event_app/screens/event_details/event_detail.dart';
-import 'package:duolingo_event_app/screens/event_home/event_home_screen.dart';
+import 'screens/authentication/signup.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,9 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Duolingo Events Clone',
       debugShowCheckedModeBanner: false,
-      home: EventsScreen(),
+      home: SignUp(),
     );
   }
 }

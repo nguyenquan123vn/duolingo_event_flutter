@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../global/style.dart';
 import 'button.dart';
 
-class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget{
+class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double _prefferedHeight = 64.0;
 
   @override
@@ -12,11 +12,16 @@ class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget{
       color: defaultBrandColor,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 18.0),
-        child: Row(children: [
-          Expanded(flex: 3, child: Text("Duolingo events", style: appBarTextStyle)),
-          Expanded(child: Button(label: "LOGIN", type: "WHITE"))
-        ],),
-      ) ,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+                flex: 3,
+                child: Text("Duolingo events", style: appBarTextStyle)),
+            Expanded(child: Button(label: "LOGIN", type: "WHITE"))
+          ],
+        ),
+      ),
     );
   }
 
