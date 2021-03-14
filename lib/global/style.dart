@@ -14,6 +14,10 @@ const Color borderColor = Color.fromRGBO(235, 236, 237, 1);
 
 const Color iconColor = Color.fromRGBO(124,136,148,0.78);
 
+const Color warnColor = Color.fromRGBO(235,67,53,1);
+
+const Color dangerColor = Color.fromRGBO(255,150,0,1);
+
 const TextStyle defaultTextStyle =
     TextStyle(fontFamily: 'Roboto', fontSize: 13, color: defaultTextColor);
 
@@ -39,6 +43,18 @@ const TextStyle primaryBtnTextStyle = TextStyle(
     fontFamily: 'Roboto',
     fontSize: 14,
     color: reverseTextColor,
+    fontWeight: FontWeight.bold);
+
+const TextStyle dangerTextStyle = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 14,
+    color: warnColor,
+    fontWeight: FontWeight.bold);
+
+const TextStyle warnTextStyle = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 14,
+    color: warnColor,
     fontWeight: FontWeight.bold);
 
 const TextStyle whiteBtnTextStyle = TextStyle(
