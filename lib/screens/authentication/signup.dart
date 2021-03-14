@@ -17,29 +17,24 @@ class _SignUp extends State<SignUp> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(10),
-                child: Text("Create your profile", style: headerTextStyle),
-              ),
-              SizedBox(height: 24.0),
-              InputBuilder(label: "Age"),
-              SizedBox(height: 24.0),
-              InputBuilder(label: "Name"),
-              SizedBox(height: 24.0),
-              InputBuilder(label: "Email"),
-              SizedBox(height: 24.0),
-              InputBuilder(label: "Password"),
-              SizedBox(height: 24.0),
-              Button(label: "CREATE ACCOUNT", type: "PRIMARY"),
-              SizedBox(height: 24.0),
-              SocialLoginButtons(),
-              SizedBox(height: 24.0),
-              AgreeTermsContainer(),
-            ],
+        child: Center(
+          child: Container(
+            height: 530.0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  child: Text("Create your profile", style: headerTextStyle),
+                ),
+                InputBuilder(label: "Age"),
+                InputBuilder(label: "Name"),
+                InputBuilder(label: "Email"),
+                InputBuilder(label: "Password"),
+                Button(label: "CREATE ACCOUNT", type: "PRIMARY"),
+                SocialLoginButtons(),
+                AgreeTermsContainer(),
+              ],
+            ),
           ),
         ),
       ),
