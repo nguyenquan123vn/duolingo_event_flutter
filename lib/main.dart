@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/authentication/signUp.dart';
-
+import 'route_generator.dart';
 void main() {
   runApp(MyApp());
 }
@@ -12,7 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Duolingo Events Clone',
       debugShowCheckedModeBanner: false,
-      home: SignUp(),
+      initialRoute: '/detail',
+      onGenerateRoute: RouteGenerator.onGenerateRoute
     );
   }
 }
