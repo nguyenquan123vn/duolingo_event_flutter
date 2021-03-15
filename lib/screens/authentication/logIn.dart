@@ -28,7 +28,10 @@ class _Login extends State<Login> {
                 InputBuilder(label: "Email"),
                 InputBuilder(label: "Password"),
                 Button(label: "LOGIN", type: "PRIMARY"),
-                Button(label: "CREATE ACCOUNT", type: "PRIMARY"),
+                Button(
+                    label: "CREATE ACCOUNT",
+                    type: "PRIMARY",
+                    onPressed: () => Navigator.of(context).pushNamed('/signUp')),
                 SocialLoginButtons(),
                 AgreeTermsContainer()
               ],

@@ -1,3 +1,4 @@
+import 'package:duolingo_event_app/global/widget/avatarContainer.dart';
 import 'package:duolingo_event_app/models/event.dart';
 import 'package:flutter/material.dart';
 import '../../../global/style.dart';
@@ -56,21 +57,5 @@ class EventTile extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class AvatarContainer extends StatelessWidget {
-  const AvatarContainer({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        height: 62.0,
-        width: 62.0,
-        decoration: BoxDecoration(
-            color: Color.fromRGBO(235, 236, 237, 1),
-            borderRadius: BorderRadius.circular(50)));
   }
 }
