@@ -1,4 +1,6 @@
+import 'package:duolingo_event_app/provider/eventFilter.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../global/style.dart';
 
 class ToggleBtn extends StatefulWidget {
@@ -15,10 +17,14 @@ class _ToggleBtnState extends State<ToggleBtn> {
 
   @override
   Widget build(BuildContext context) {
+
+    EventFilter eventFilter = context.read<EventFilter>();
+
     return InkWell(
       onTap: () {
         return setState(() {
           isActived = !isActived;
+          eventFilter.selectAvailable();
         });
       },
       child: Container(
