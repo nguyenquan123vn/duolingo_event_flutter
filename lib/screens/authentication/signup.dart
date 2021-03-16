@@ -11,6 +11,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUp extends State<SignUp> {
+  TextEditingController _usernameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  final _signUpKey1 = GlobalKey<FormState>();
+  final _signUpKey2 = GlobalKey<FormState>();
+  final _signUpKey3 = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +25,35 @@ class _SignUp extends State<SignUp> {
         padding: const EdgeInsets.only(left: 24.0, right: 24.0),
         child: Center(
           child: Container(
-            height: 530.0,
+            height: 460.0,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
                   child: Text("Create your profile", style: headerTextStyle),
                 ),
-                InputBuilder(label: "Age"),
-                InputBuilder(label: "Name"),
-                InputBuilder(label: "Email"),
-                InputBuilder(label: "Password"),
-                Button(label: "CREATE ACCOUNT", type: "PRIMARY"),
+                InputBuilder(
+                    label: "Username",
+                    controller: _usernameController,
+                    formKey: _signUpKey1),
+                InputBuilder(
+                    label: "Email",
+                    controller: _emailController,
+                    formKey: _signUpKey2),
+                InputBuilder(
+                    label: "Password",
+                    controller: _passwordController,
+                    formKey: _signUpKey3),
+                Button(
+                    label: "CREATE ACCOUNT",
+                    type: "PRIMARY",
+                    onPressed: () {
+                      if (_signUpKey1.currentState.validate() ||
+                          _signUpKey2.currentState.validate() ||
+                          _signUpKey3.currentState.validate()) {
+                        print("SUCCESS!!");
+                      }
+                    }),
                 SocialLoginButtons(),
                 AgreeTermsContainer(),
               ],
@@ -41,5 +64,3 @@ class _SignUp extends State<SignUp> {
     );
   }
 }
-
-

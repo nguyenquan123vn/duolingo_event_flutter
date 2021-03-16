@@ -11,6 +11,11 @@ class Login extends StatefulWidget {
 }
 
 class _Login extends State<Login> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  final _logInKey1 = GlobalKey<FormState>();
+  final _logInKey2 = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,13 +30,28 @@ class _Login extends State<Login> {
                 Container(
                   child: Text("Login", style: headerTextStyle),
                 ),
-                InputBuilder(label: "Email"),
-                InputBuilder(label: "Password"),
-                Button(label: "LOGIN", type: "PRIMARY"),
+                InputBuilder(
+                    label: "Email",
+                    controller: _emailController,
+                    formKey: _logInKey1),
+                InputBuilder(
+                    label: "Password",
+                    controller: _passwordController,
+                    formKey: _logInKey2),
+                Button(
+                    label: "LOGIN",
+                    type: "PRIMARY",
+                    onPressed: () {
+                      if (_logInKey1.currentState.validate() ||
+                          _logInKey2.currentState.validate()) {
+                        print("SUCCESS!!");
+                      }
+                    }),
                 Button(
                     label: "CREATE ACCOUNT",
                     type: "PRIMARY",
-                    onPressed: () => Navigator.of(context).pushNamed('/signUp')),
+                    onPressed: () =>
+                        Navigator.of(context).pushNamed('/signUp')),
                 SocialLoginButtons(),
                 AgreeTermsContainer()
               ],
