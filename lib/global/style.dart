@@ -19,23 +19,23 @@ const Color warnColor = Color.fromRGBO(235,67,53,1);
 const Color dangerColor = Color.fromRGBO(255,150,0,1);
 
 const TextStyle defaultTextStyle =
-    TextStyle(fontFamily: 'Roboto', fontSize: 13, color: defaultTextColor);
+    TextStyle(fontFamily: 'Roboto', fontSize: 14, color: defaultTextColor);
 
 const TextStyle defaultParaStyle =
-    TextStyle(fontFamily: 'Roboto', fontSize: 13, color: defaultTextColor, height: 1.5);
+    TextStyle(fontFamily: 'Roboto', fontSize: 14, color: defaultTextColor, height: 1.5);
 
 const TextStyle appBarTextStyle =
     TextStyle(fontFamily: 'Monsserat', fontSize: 24, color: reverseTextColor);
 
 const TextStyle defaultBoldWashTextStyle = TextStyle(
     fontFamily: 'Roboto',
-    fontSize: 13,
+    fontSize: 14,
     color: washTextColor,
     fontWeight: FontWeight.bold);
 
 const TextStyle defaultBoldTextStyle = TextStyle(
     fontFamily: 'Roboto',
-    fontSize: 13,
+    fontSize: 14,
     color: defaultTextColor,
     fontWeight: FontWeight.bold);
 
@@ -54,7 +54,7 @@ const TextStyle dangerTextStyle = TextStyle(
 const TextStyle warnTextStyle = TextStyle(
     fontFamily: 'Roboto',
     fontSize: 14,
-    color: warnColor,
+    color: Colors.orange,
     fontWeight: FontWeight.bold);
 
 const TextStyle whiteBtnTextStyle = TextStyle(
@@ -78,6 +78,13 @@ const TextStyle headerTextStyle = TextStyle(
 
 BoxShadow defaultShadow = BoxShadow(
   color: Color.fromRGBO(235, 236, 237, 1),
+  spreadRadius: 0,
+  blurRadius: 0,
+  offset: Offset(0, 2),
+);
+
+BoxShadow primaryShadow = BoxShadow(
+  color: Color.fromRGBO(24,153,214, 1),
   spreadRadius: 0,
   blurRadius: 0,
   offset: Offset(0, 2),

@@ -24,8 +24,8 @@ class _ButtonState extends State<Button> {
                 ? defaultBrandColor
                 : defaultBackgroundColor,
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(width: 1.0, color: borderColor),
-            boxShadow: [defaultShadow]),
+            border: Border.all(width: 1.0, color: widget.type == "PRIMARY" ? defaultBrandColor : borderColor),
+            boxShadow: [widget.type == "PRIMARY" ? primaryShadow : defaultShadow ]),
         child: TextButton(
           onPressed: widget.onPressed,
           child: Align(

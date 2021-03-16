@@ -10,10 +10,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<EventFilter>(create: (_) => EventFilter())
-      ],
+    return ChangeNotifierProvider(
+      create: (context) => EventFilter(),
       child: MaterialApp(
           title: 'Duolingo Events Clone',
           debugShowCheckedModeBanner: false,
