@@ -13,12 +13,30 @@ class EventTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextStyle switchTextStyle(spotLeft) {
+      if (spotLeft == 0) {
+        return dangerTextStyle;
+      } else if (spotLeft < 10 && spotLeft > 0) {
+        return warnTextStyle;
+      } else {
+        return whiteBtnTextStyle;
+      }
+    }
+
+    String switchText(spotLeft) {
+      return spotLeft != 0
+          ? spotLeft > 20
+              ? "20+ spots left"
+              : "$spotLeft spots left"
+          : "No spots left";
+    }
+
     int spotLeft = event.attendeeLimit - event.reservationCount;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Container(
-        height: 130.0,
+        height: 150.0,
         width: double.infinity,
         decoration: BoxDecoration(
             color: defaultBackgroundColor,
@@ -41,15 +59,7 @@ class EventTile extends StatelessWidget {
                       Text(event.startDate, style: defaultBoldWashTextStyle),
                       Text(event.title, style: defaultBoldTextStyle),
                       Text(event.attendeeProficiency, style: defaultTextStyle),
-                      Text(
-                          spotLeft != 0
-                              ? spotLeft > 20
-                                  ? "20+ spots left"
-                                  : "$spotLeft spots left"
-                              : "No spots left",
-                          style: spotLeft != 0
-                              ? whiteBtnTextStyle
-                              : dangerTextStyle)
+                      Text(switchText(spotLeft), style: switchTextStyle(spotLeft))
                     ]),
               )
             ],
