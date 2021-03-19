@@ -6,14 +6,14 @@ import '../../../global/style.dart';
 class Details extends StatelessWidget {
   const Details({
     Key key,
-    //this.attending,
-    //this.language,
-    //this.attandeeProficiency
+    this.attending,
+    this.language,
+    this.attandeeProficiency
   }) : super(key: key);
 
-  //final int attending;
-  //final int language;
-  //final attandeeProficiency;
+  final int attending;
+  final String language;
+  final String attandeeProficiency;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class Details extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Details", style: headerTextStyle),
-            Text("24 attending", style: defaultBoldWashTextStyle),
+            Text("$attending attending", style: defaultBoldWashTextStyle),
             Container(
               width: 258.0,
               child: Row(
@@ -37,8 +37,8 @@ class Details extends StatelessWidget {
                     AvatarContainer(),
                   ]),
             ),
-            IconText(label: "Hosted in Spanish", icon: Icons.messenger),
-            IconText(label: "Beginner", icon: Icons.people),
+            IconText(label: "Hosted in $language", icon: Icons.messenger),
+            IconText(label: attandeeProficiency, icon: Icons.people),
           ]),
     );
   }

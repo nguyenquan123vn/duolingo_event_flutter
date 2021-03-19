@@ -12,6 +12,7 @@ class RouteGenerator {
   static const eventDetailPage = '/detail';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+
     switch (settings.name) {
       case RouteGenerator.signUpPage:
         return MaterialPageRoute<dynamic>(builder: (_) => SignUp());
@@ -20,7 +21,7 @@ class RouteGenerator {
       case RouteGenerator.homePage:
         return MaterialPageRoute<dynamic>(builder: (_) => EventsScreen());
       case RouteGenerator.eventDetailPage:
-        return MaterialPageRoute<dynamic>(builder: (_) => EventDetail());
+        return MaterialPageRoute<dynamic>(builder: (_) => EventDetail(), settings: settings);
       default:
         return _errorRoute();
     }
