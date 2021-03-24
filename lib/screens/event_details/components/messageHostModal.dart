@@ -26,6 +26,7 @@ class MessageHostModal extends StatelessWidget {
                     Button(label: "SEND MESSAGE", type: "PRIMARY"),
                     Text("CANCEL", style: whiteBtnTextStyle),
                   ]))),
+                
     );
   }
 }

@@ -1,9 +1,11 @@
 import 'package:duolingo_event_app/global/widget/button.dart';
+import 'package:duolingo_event_app/main.dart';
 import 'package:flutter/material.dart';
 import '../../global/style.dart';
 import 'components/agreeTerms.dart';
 import 'components/input.dart';
 import 'components/socialLoginBtn.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -39,14 +41,10 @@ class _Login extends State<Login> {
                     controller: _passwordController,
                     formKey: _logInKey2),
                 Button(
-                    label: "LOGIN",
-                    type: "PRIMARY",
-                    onPressed: () {
-                      if (_logInKey1.currentState.validate() ||
-                          _logInKey2.currentState.validate()) {
-                        print("SUCCESS!!");
-                      }
-                    }),
+                  label: "LOGIN",
+                  type: "PRIMARY",
+                  onPressed: signIn,
+                ),
                 Button(
                     label: "CREATE ACCOUNT",
                     type: "PRIMARY",
@@ -60,5 +58,19 @@ class _Login extends State<Login> {
         ),
       ),
     );
+  }
+
+  Future<void> signIn() async {
+    if (_logInKey1.currentState.validate() &&
+        _logInKey2.currentState.validate()) {
+      try {
+        FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: _emailController.text, password: _passwordController.text);
+      } catch (e) {
+        print("abc");
+      }
+    } else {
+      print("xyz");
+    }
   }
 }
