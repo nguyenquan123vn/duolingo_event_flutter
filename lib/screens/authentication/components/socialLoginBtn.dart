@@ -12,7 +12,7 @@ class SocialLoginButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(child: Button(label: "FACEBOOK", type: "WHITE")),
-        SizedBox(width: 8.0),
+        SizedBox(width: 20.0),
         Expanded(child: Button(label: "GOOGLE", type: "WHITE")),
       ],
     );

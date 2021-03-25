@@ -18,7 +18,7 @@ class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
             Expanded(
                 flex: 3,
                 child: Text("Duolingo events", style: appBarTextStyle)),
-            Expanded(child: Button(label: "LOGIN", type: "WHITE", onPressed: () => Navigator.of(context).pushNamed('/logIn')))
+            Expanded(child: Button(label: "LOGIN", type: "WHITE", onPressed: () => Navigator.of(context).pushNamed('/login')))
           ],
         ),
       ),
