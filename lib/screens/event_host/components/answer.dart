@@ -10,11 +10,13 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: EdgeInsets.all(10),
         child: Button(
-      label:
-          (answerIndex == null) ? '$answerText' : '$answerIndex. $answerText',
-      type: 'PRIMARY',
-      onPressed: selectHandler,
-    ));
+          label: (answerIndex == null)
+              ? '$answerText'
+              : '$answerIndex. $answerText',
+          type: 'PRIMARY',
+          onPressed: selectHandler,
+        ));
   }
 }

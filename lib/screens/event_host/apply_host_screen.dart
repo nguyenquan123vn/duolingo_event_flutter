@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:duolingo_event_app/models/querry.dart';
+import 'package:duolingo_event_app/models/query.dart';
+import 'package:duolingo_event_app/global/style.dart';
 import 'components/hostcontroller.dart';
 
 class ApplyHost extends StatefulWidget {
@@ -10,172 +11,179 @@ class ApplyHost extends StatefulWidget {
 class _ApplyHostState extends State<ApplyHost> {
   List<Map<String, Object>> _questions = [
     {
-      'question': Querry(
+      'question': Query(
+          index: 'duolingo',
+          text:
+              'Welcome! Bienvenue! Willkommen!\nYour Duolingo Events hosting journey takes off from here\nTakes 2 min'),
+      'answer': [Query(text: 'Let\'s get started')]
+    },
+    {
+      'question': Query(
         index: '1',
         text: 'Hi, I\'m Duo! What\'s your full name?',
       ),
-      'answer': [Querry(text: 'Sounds good')]
+      'answer': [Query(text: 'OK')]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: '2',
         text: 'Now it\'s time to get to know you a little more!',
       ),
-      'answer': [Querry(text: 'Sounds good')]
+      'answer': [Query(text: 'Sounds good')]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'a',
         text: 'In what language do you plan on hosting your Events?',
       ),
-      'answer': [Querry(text: 'English')]
+      'answer': [Query(text: 'OK')]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'b',
         text:
             'How would you rate your listening and speaking proficiency in ___?',
       ),
       'answer': [
-        Querry(
+        Query(
           index: 'A',
           text: 'Completely fluent',
         ),
-        Querry(
+        Query(
           index: 'B',
           text: 'Intermediate level',
         ),
-        Querry(
+        Query(
           index: 'C',
           text: 'Beginner level',
         )
       ],
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'c',
         text: 'How do you expect your attendee proficiency?',
       ),
       'answer': [
-        Querry(
+        Query(
           index: 'A',
           text: 'Beginner',
         ),
-        Querry(
+        Query(
           index: 'B',
           text: 'Intermediate',
         ),
-        Querry(
+        Query(
           index: 'C',
           text: 'Advanced',
         ),
       ]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'd',
         text: 'What is your maximum attendees?',
       ),
-      'answer': [Querry(text: '20')]
+      'answer': [Query(text: 'OK')]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'e',
         text: 'Describe something about your event?',
       ),
-      'answer': [Querry(text: 'Teaching stuff')]
+      'answer': [Query(text: 'OK')]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: '3',
         text:
             'Fantastic! Now we\'d love to learn about the events you have in mind.',
       ),
-      'answer': [Querry(text: 'Let\'s go')]
+      'answer': [Query(text: 'Let\'s go')]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'a',
         text: 'Would you like to host your events online or in-person?',
       ),
       'answer': [
-        Querry(
+        Query(
           index: 'A',
           text: 'Online events',
         ),
-        Querry(
+        Query(
           index: 'B',
           text: 'In-person events',
         ),
-        Querry(
+        Query(
           index: 'C',
           text: 'Both types of events',
         ),
       ]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'b',
         text: 'Do you have experience using Zoom video conferencing?',
       ),
       'answer': [
-        Querry(
+        Query(
           index: 'A',
           text: 'Yes, I\'m very experienced',
         ),
-        Querry(
+        Query(
           index: 'B',
           text:
               'Some, I\'ve used it but I could use some tips and best some practices',
         ),
-        Querry(
+        Query(
           index: 'C',
           text: 'No, I\'ve rarely used it',
         ),
       ]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'c',
         text: 'In what city are you based?',
       ),
-      'answer': [Querry(text: 'Hanoi')]
+      'answer': [Query(text: 'OK')]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'd',
         text: 'How soon can you start hosting?',
       ),
       'answer': [
-        Querry(
+        Query(
           index: 'A',
           text: 'I\'m ready to begin hosting right away!',
         ),
-        Querry(
+        Query(
           index: 'B',
           text: 'In about a week or two',
         ),
-        Querry(
+        Query(
           index: 'C',
           text: 'In a month or more',
         ),
       ]
     },
     {
-      'question': Querry(
+      'question': Query(
         index: 'e',
         text: 'How frequently will you host events?',
       ),
       'answer': [
-        Querry(
+        Query(
           index: 'A',
           text: 'Several times a week',
         ),
-        Querry(
+        Query(
           index: 'B',
           text: 'Once a week',
         ),
-        Querry(
+        Query(
           index: 'C',
           text: 'Few times a month',
         ),
@@ -192,8 +200,11 @@ class _ApplyHostState extends State<ApplyHost> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Controller(_answerQuestion, _index, _questions),
+    return Card(
+      color: themedBackgroundColor,
+      child: (_index < _questions.length)
+          ? Controller(_answerQuestion, _index, _questions)
+          : Container(child: Text('DONE')),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:duolingo_event_app/global/style.dart';
 
 class Question extends StatelessWidget {
   final String questionIndex;
@@ -9,11 +10,23 @@ class Question extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.all(20),
-      child: Text(
-        '$questionIndex. $questionText',
-        style: TextStyle(fontSize: 30),
-        textAlign: TextAlign.center,
-      ),
+      child: (questionIndex == 'duolingo')
+          ? Column(children: <Widget>[
+              Text(
+                'duolingo',
+                style: logoTextStyle,
+              ),
+              Text(
+                questionText,
+                style: defaultBoldWashTextStyle,
+                textAlign: TextAlign.center,
+              ),
+            ])
+          : Text(
+              '$questionIndex. $questionText',
+              style: primaryBtnTextStyle,
+              textAlign: TextAlign.center,
+            ),
     );
   }
 }
