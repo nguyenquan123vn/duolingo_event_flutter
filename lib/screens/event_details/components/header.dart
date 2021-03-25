@@ -13,7 +13,7 @@ class Header extends StatelessWidget {
   }) : super(key: key);
 
   final String title;
-  final String date;
+  final DateTime date;
   final int spotLeft;
 
   @override
@@ -24,7 +24,7 @@ class Header extends StatelessWidget {
         Text(title, style: headerTextStyle),
         SizedBox(height: 16.0),
         IconText(
-            label: date,
+            label: '${date.day}/${date.month}/${date.year} - ${date.hour}h${date.minute}',
             icon: Icons.watch_later),
         SizedBox(height: 16.0),
         IconText(label: "$spotLeft spots left", icon: Icons.person),

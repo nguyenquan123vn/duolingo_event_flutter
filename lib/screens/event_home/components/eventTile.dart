@@ -58,7 +58,7 @@ class EventTile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(event.startDate, style: defaultBoldWashTextStyle),
+                        Text('${event.date.day}/${event.date.month}/${event.date.year}', style: defaultBoldWashTextStyle),
                         Text(event.title, style: defaultBoldTextStyle),
                         Text(event.attendeeProficiency,
                             style: defaultTextStyle),

@@ -23,7 +23,7 @@ class _EventListState extends State<EventList> {
           language: "English",
           recurrencePattern: "WEEKLY",
           reservationCount: 40,
-          startDate: "2021-03-13T17:00:00Z",
+          startDate: DateTime.now().toString(),
           timeZone: "Asia/Calcutta",
           title: "Virtual English Practice (Intermediate & Advance)"),
       Event(
@@ -36,7 +36,7 @@ class _EventListState extends State<EventList> {
           language: "Spanish",
           recurrencePattern: "WEEKLY",
           reservationCount: 92,
-          startDate: "2021-03-13T17:00:00Z",
+          startDate: DateTime.now().toString(),
           timeZone: "Asia/Calcutta",
           title: "Fiesta de Juegos entre Amigos"),
       Event(
@@ -49,7 +49,7 @@ class _EventListState extends State<EventList> {
           language: "France",
           recurrencePattern: "WEEKLY",
           reservationCount: 50,
-          startDate: "2021-03-13T17:00:00Z",
+          startDate: DateTime.now().toString(),
           timeZone: "Asia/Calcutta",
           title: "Advanced Reading & Conversation: Intro to Maryse Condé"),
       Event(
@@ -62,7 +62,7 @@ class _EventListState extends State<EventList> {
           language: "Germany",
           recurrencePattern: "WEEKLY",
           reservationCount: 50,
-          startDate: "2021-03-13T17:00:00Z",
+          startDate: DateTime.now().toString(),
           timeZone: "Asia/Calcutta",
           title: "Welcome germany leaners <3"),
       Event(
@@ -75,7 +75,7 @@ class _EventListState extends State<EventList> {
           language: "France",
           recurrencePattern: "WEEKLY",
           reservationCount: 50,
-          startDate: "2021-03-13T17:00:00Z",
+          startDate: DateTime.now().toString(),
           timeZone: "Asia/Calcutta",
           title: "Advanced Reading & Conversation: Intro to Maryse Condé"),
       Event(
@@ -88,7 +88,7 @@ class _EventListState extends State<EventList> {
           language: "Spanish",
           recurrencePattern: "WEEKLY",
           reservationCount: 90,
-          startDate: "2021-03-13T17:00:00Z",
+          startDate: DateTime.now().toString(),
           timeZone: "Asia/Calcutta",
           title: "Spanish for beginner, attend now !!!"),
     ];

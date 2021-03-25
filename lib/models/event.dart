@@ -12,8 +12,9 @@ class Event {
   final String timeZone;
   final String title;
 
-  Event({
-      this.attendeeLimit,
+  DateTime date;
+  Event(
+      {this.attendeeLimit,
       this.attendeeProficiency,
       this.description,
       this.duration,
@@ -24,5 +25,7 @@ class Event {
       this.reservationCount,
       this.startDate,
       this.timeZone,
-      this.title});
+      this.title}) {
+    date = DateTime.parse(startDate);
+  }
 }

@@ -75,7 +75,7 @@ class ContentContainer extends StatelessWidget {
     return Column(children: [
       Header(
           title: event.title,
-          date: event.startDate,
+          date: event.date,
           spotLeft: event.attendeeLimit - event.reservationCount),
       Divider(height: 50, thickness: 1),
       Details(
