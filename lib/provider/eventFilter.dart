@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 class EventFilter extends ChangeNotifier {
-
   List<String> _proficiencies = [
     'ALL LEVELS',
     'BEGINNER',

@@ -1,10 +1,10 @@
-import 'package:duolingo_event_app/global/widget/button.dart';
 import 'package:flutter/material.dart';
-import '../../global/style.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:duolingo_event_app/global/style.dart';
+import 'package:duolingo_event_app/global/widget/button.dart';
 import 'components/agreeTerms.dart';
 import 'components/input.dart';
 import 'components/socialLoginBtn.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -29,28 +29,33 @@ class _Login extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
-                  child: Text("Login", style: headerTextStyle),
+                  child: Text(
+                    "Login",
+                    style: headerTextStyle,
+                  ),
                 ),
                 InputBuilder(
-                    label: "Email",
-                    controller: _emailController,
-                    formKey: _logInKey1),
+                  label: "Email",
+                  controller: _emailController,
+                  formKey: _logInKey1,
+                ),
                 InputBuilder(
-                    label: "Password",
-                    controller: _passwordController,
-                    formKey: _logInKey2),
+                  label: "Password",
+                  controller: _passwordController,
+                  formKey: _logInKey2,
+                ),
                 Button(
                   label: "LOGIN",
                   type: "PRIMARY",
                   onPressed: signIn,
                 ),
                 Button(
-                    label: "CREATE ACCOUNT",
-                    type: "PRIMARY",
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed('/signUp')),
+                  label: "CREATE ACCOUNT",
+                  type: "PRIMARY",
+                  onPressed: () => Navigator.of(context).pushNamed('/signUp'),
+                ),
                 SocialLoginButtons(),
-                AgreeTermsContainer()
+                AgreeTermsContainer(),
               ],
             ),
           ),
@@ -66,10 +71,10 @@ class _Login extends State<Login> {
         FirebaseAuth.instance.signInWithEmailAndPassword(
             email: _emailController.text, password: _passwordController.text);
       } catch (e) {
-        print("abc");
+        print("Logged in.");
       }
     } else {
-      print("xyz");
+      print("Havent logged in.");
     }
   }
 }

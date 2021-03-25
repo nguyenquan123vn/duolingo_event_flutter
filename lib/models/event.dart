@@ -13,19 +13,20 @@ class Event {
   final String title;
 
   DateTime date;
-  Event(
-      {this.attendeeLimit,
-      this.attendeeProficiency,
-      this.description,
-      this.duration,
-      this.eventId,
-      this.hostId,
-      this.language,
-      this.recurrencePattern,
-      this.reservationCount,
-      this.startDate,
-      this.timeZone,
-      this.title}) {
+  Event({
+    this.attendeeLimit,
+    this.attendeeProficiency,
+    this.description,
+    this.duration,
+    this.eventId,
+    this.hostId,
+    this.language,
+    this.recurrencePattern,
+    this.reservationCount,
+    this.startDate,
+    this.timeZone,
+    this.title,
+  }) {
     date = DateTime.parse(startDate);
   }
 }

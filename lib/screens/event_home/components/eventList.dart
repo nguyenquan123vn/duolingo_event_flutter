@@ -1,6 +1,6 @@
-import 'package:duolingo_event_app/models/event.dart';
 import 'package:flutter/material.dart';
-import 'eventTile.dart';
+import 'package:duolingo_event_app/models/event.dart';
+import './eventTile.dart';
 
 class EventList extends StatefulWidget {
   @override

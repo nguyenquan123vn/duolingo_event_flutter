@@ -1,7 +1,7 @@
-import 'package:duolingo_event_app/provider/eventFilter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../global/style.dart';
+import 'package:duolingo_event_app/global/style.dart';
+import 'package:duolingo_event_app/provider/eventFilter.dart';
 
 class LanguageOptionValues extends StatefulWidget {
   const LanguageOptionValues({Key key, this.languageValues}) : super(key: key);
@@ -15,31 +15,32 @@ class LanguageOptionValues extends StatefulWidget {
 class _LanguageOptionValuesState extends State<LanguageOptionValues> {
   @override
   Widget build(BuildContext context) {
-
     EventFilter eventFilter = context.read<EventFilter>();
 
     return Dialog(
       child: Container(
-          height: 320.0,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-            child: ListView.builder(
-              itemCount: widget.languageValues.length,
-              itemBuilder: (BuildContext context, int index) {
-                String languageLabel =
-                    widget.languageValues.keys.elementAt(index);
-                return OptionValuesContainer(
-                    label: languageLabel.toUpperCase(),
-                    type: "LANGUAGE",
-                    onPressed: () {
-                      eventFilter.selectLanguage(languageLabel.toUpperCase());
-                      Navigator.of(context, rootNavigator: true).pop('/');
-                    });
-              },
-            ),
-          )),
+        height: 320.0,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+          child: ListView.builder(
+            itemCount: widget.languageValues.length,
+            itemBuilder: (BuildContext context, int index) {
+              String languageLabel =
+                  widget.languageValues.keys.elementAt(index);
+              return OptionValuesContainer(
+                  label: languageLabel.toUpperCase(),
+                  type: "LANGUAGE",
+                  onPressed: () {
+                    eventFilter.selectLanguage(languageLabel.toUpperCase());
+                    Navigator.of(context, rootNavigator: true).pop('/');
+                  });
+            },
+          ),
+        ),
+      ),
     );
   }
 }
@@ -63,7 +64,9 @@ class _ProficiencyOptionValuesState extends State<ProficiencyOptionValues> {
     return Dialog(
       child: Container(
           height: 240.0,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -103,16 +106,17 @@ class OptionValuesContainer extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
         child: Container(
-            height: 37.0,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: borderColor,
-              borderRadius: BorderRadius.circular(4),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(label, style: defaultBoldWashTextStyle),
-            )),
+          height: 37.0,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: borderColor,
+            borderRadius: BorderRadius.circular(4),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(label, style: defaultBoldWashTextStyle),
+          ),
+        ),
       ),
     );
   }

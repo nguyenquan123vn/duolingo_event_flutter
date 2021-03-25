@@ -1,8 +1,8 @@
-import 'package:duolingo_event_app/provider/eventFilter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../global/style.dart';
-import 'dropdownOptions.dart';
+import 'package:duolingo_event_app/global/style.dart';
+import 'package:duolingo_event_app/provider/eventFilter.dart';
+import './dropdownOptions.dart';
 
 class DropdownBar extends StatefulWidget {
   const DropdownBar({Key key, this.type}) : super(key: key);
@@ -34,14 +34,18 @@ class _DropdownBarState extends State<DropdownBar> {
     EventFilter eventFilter = context.watch<EventFilter>();
 
     return InkWell(
-      onTap: () => showOptionValues(eventFilter.languages, eventFilter.proficiencies),
+      onTap: () => showOptionValues(
+        eventFilter.languages,
+        eventFilter.proficiencies,
+      ),
       child: Container(
         height: 45.0,
         decoration: BoxDecoration(
-            color: defaultBackgroundColor,
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(width: 1.0, color: borderColor),
-            boxShadow: [defaultShadow]),
+          color: defaultBackgroundColor,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(width: 1.0, color: borderColor),
+          boxShadow: [defaultShadow],
+        ),
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Row(
@@ -53,7 +57,10 @@ class _DropdownBarState extends State<DropdownBar> {
                       ? eventFilter.selectedLanguage
                       : eventFilter.selectedProficiency,
                   style: defaultBoldTextStyle),
-              Icon(Icons.keyboard_arrow_down_rounded, color: iconColor)
+              Icon(
+                Icons.keyboard_arrow_down_rounded,
+                color: iconColor,
+              ),
             ],
           ),
         ),
@@ -61,5 +68,3 @@ class _DropdownBarState extends State<DropdownBar> {
     );
   }
 }
-
-

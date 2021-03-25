@@ -8,7 +8,8 @@ class EventsScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: CustomedAppBar(),
-        body: Body()
-    ));
+        body: Body(),
+      ),
+    );
   }
 }

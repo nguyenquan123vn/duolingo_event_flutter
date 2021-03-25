@@ -12,17 +12,22 @@ class Controller extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Question(
-          (questions[index]['question'] as Query).index,
-          (questions[index]['question'] as Query).text,
-        ),
-        ...(questions[index]['answer'] as List<Query>).map((answer) {
-          return Answer(answerQuestion, answer.index, answer.text);
-        }).toList(),
-      ],
-    ));
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Question(
+            (questions[index]['question'] as Query).index,
+            (questions[index]['question'] as Query).text,
+          ),
+          ...(questions[index]['answer'] as List<Query>).map((answer) {
+            return Answer(
+              answerQuestion,
+              answer.index,
+              answer.text,
+            );
+          }).toList(),
+        ],
+      ),
+    );
   }
 }

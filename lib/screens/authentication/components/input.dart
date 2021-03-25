@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../global/style.dart';
+import 'package:duolingo_event_app/global/style.dart';
 
 class InputBuilder extends StatefulWidget {
   const InputBuilder({Key key, this.label, this.controller, this.formKey})
@@ -31,32 +31,33 @@ class InputBuilderState extends State<InputBuilder> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: double.infinity,
-        child: Form(
-          key: widget.formKey,
-          child: TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return '${widget.label} should not empty!';
-              }
-              return null;
-            },
-            controller: widget.controller,
-            decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(
-                    const Radius.circular(8.0),
-                  ),
-                ),
-                filled: true,
-                fillColor: borderColor,
-                hintText: widget.label,
-                hintStyle: defaultBoldWashTextStyle,
-                errorStyle: dangerTextStyle,
-                suffixIcon: suffixIconSwitch(widget.label),
+      width: double.infinity,
+      child: Form(
+        key: widget.formKey,
+        child: TextFormField(
+          validator: (value) {
+            if (value.isEmpty) {
+              return '${widget.label} should not empty!';
+            }
+            return null;
+          },
+          controller: widget.controller,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(
+                const Radius.circular(8.0),
+              ),
             ),
-            obscureText: widget.label == 'Password' ? true : false,
+            filled: true,
+            fillColor: borderColor,
+            hintText: widget.label,
+            hintStyle: defaultBoldWashTextStyle,
+            errorStyle: dangerTextStyle,
+            suffixIcon: suffixIconSwitch(widget.label),
           ),
-        ));
+          obscureText: widget.label == 'Password' ? true : false,
+        ),
+      ),
+    );
   }
 }

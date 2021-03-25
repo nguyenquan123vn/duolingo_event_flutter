@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../global/style.dart';
+import 'package:duolingo_event_app/global/style.dart';
 
 class IconText extends StatelessWidget {
   const IconText({
@@ -18,7 +18,10 @@ class IconText extends StatelessWidget {
       children: [
         Icon(icon, color: iconColor),
         SizedBox(width: 8.0),
-        Text(label, style: defaultTextStyle),
+        Text(
+          label,
+          style: defaultTextStyle,
+        ),
       ],
     );
   }

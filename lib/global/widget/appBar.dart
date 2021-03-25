@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../global/style.dart';
-import 'button.dart';
+import 'package:duolingo_event_app/global/style.dart';
+import './button.dart';
 
 class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double _prefferedHeight = 64.0;
@@ -18,7 +18,13 @@ class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
             Expanded(
                 flex: 3,
                 child: Text("Duolingo events", style: appBarTextStyle)),
-            Expanded(child: Button(label: "LOGIN", type: "WHITE", onPressed: () => Navigator.of(context).pushNamed('/login')))
+            Expanded(
+              child: Button(
+                label: "LOGIN",
+                type: "WHITE",
+                onPressed: () => Navigator.of(context).pushNamed('/login'),
+              ),
+            ),
           ],
         ),
       ),

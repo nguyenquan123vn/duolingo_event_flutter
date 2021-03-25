@@ -1,5 +1,5 @@
-import 'package:duolingo_event_app/global/widget/button.dart';
 import 'package:flutter/material.dart';
+import 'package:duolingo_event_app/global/widget/button.dart';
 
 class SocialLoginButtons extends StatelessWidget {
   const SocialLoginButtons({
@@ -11,9 +11,13 @@ class SocialLoginButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(child: Button(label: "FACEBOOK", type: "WHITE")),
+        Expanded(
+          child: Button(label: "FACEBOOK", type: "WHITE"),
+        ),
         SizedBox(width: 20.0),
-        Expanded(child: Button(label: "GOOGLE", type: "WHITE")),
+        Expanded(
+          child: Button(label: "GOOGLE", type: "WHITE"),
+        ),
       ],
     );
   }

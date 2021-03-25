@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../global/style.dart';
-import 'components/input.dart';
+import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/global/widget/button.dart';
+import 'components/input.dart';
 import 'components/agreeTerms.dart';
 import 'components/socialLoginBtn.dart';
 
@@ -48,11 +48,12 @@ class _SignUp extends State<SignUp> {
                     label: "CREATE ACCOUNT",
                     type: "PRIMARY",
                     onPressed: () {
-                      if (_signUpKey1.currentState.validate() ||
-                          _signUpKey2.currentState.validate() ||
+                      if (_signUpKey1.currentState.validate() &&
+                          _signUpKey2.currentState.validate() &&
                           _signUpKey3.currentState.validate()) {
-                        print("SUCCESS!!");
-                      }
+                        print("Created account.");
+                      } else
+                        print("Havent created account.");
                     }),
                 SocialLoginButtons(),
                 AgreeTermsContainer(),

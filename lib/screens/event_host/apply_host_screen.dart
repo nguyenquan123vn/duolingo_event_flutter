@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:duolingo_event_app/models/query.dart';
 import 'package:duolingo_event_app/global/style.dart';
+import 'package:duolingo_event_app/models/query.dart';
 import 'components/hostcontroller.dart';
 
 class ApplyHost extends StatefulWidget {
@@ -12,9 +12,10 @@ class _ApplyHostState extends State<ApplyHost> {
   List<Map<String, Object>> _questions = [
     {
       'question': Query(
-          index: 'duolingo',
-          text:
-              'Welcome! Bienvenue! Willkommen!\nYour Duolingo Events hosting journey takes off from here\nTakes 2 min'),
+        index: 'duolingo',
+        text:
+            'Welcome! Bienvenue! Willkommen!\nYour Duolingo Events hosting journey takes off from here\nTakes 2 min',
+      ),
       'answer': [Query(text: 'Let\'s get started')]
     },
     {
