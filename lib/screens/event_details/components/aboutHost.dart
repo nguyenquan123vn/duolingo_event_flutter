@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
-import 'package:duolingo_event_app/global/widget/avatarContainer.dart';
+import 'package:duolingo_event_app/global/widget/avatar.dart';
 import 'package:duolingo_event_app/global/widget/button.dart';
 import './messageHostModal.dart';
 
@@ -25,7 +25,7 @@ class AboutHost extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AvatarContainer(),
+                Avatar(size: 100.0),
                 SizedBox(width: 16.0),
                 Expanded(
                   child: Column(

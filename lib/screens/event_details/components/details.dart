@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
-import 'package:duolingo_event_app/global/widget/avatarContainer.dart';
+import 'package:duolingo_event_app/global/widget/avatar.dart';
 import 'package:duolingo_event_app/global/widget/iconText.dart';
 
 class Details extends StatelessWidget {
@@ -33,11 +33,11 @@ class Details extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AvatarContainer(),
-                AvatarContainer(),
-                AvatarContainer(),
-                AvatarContainer(),
-                AvatarContainer(),
+                Avatar(size: 20.0),
+                Avatar(size: 20.0),
+                Avatar(size: 20.0),
+                Avatar(size: 20.0),
+                Avatar(size: 20.0),
               ],
             ),
           ),
