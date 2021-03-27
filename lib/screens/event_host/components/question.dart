@@ -15,7 +15,7 @@ class Question extends StatelessWidget {
           ? Column(
               children: <Widget>[
                 Text(
-                  'duolingo',
+                  'ｄｕｏｌｉｎｇｏ',
                   style: logoTextStyle,
                 ),
                 Text(

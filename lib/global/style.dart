@@ -26,7 +26,7 @@ const Color dangerColor = Color.fromRGBO(255, 150, 0, 1.0);
 
 const TextStyle logoTextStyle = TextStyle(
   fontFamily: 'Roboto',
-  fontSize: 60,
+  fontSize: 40,
   color: logoColor,
   fontWeight: FontWeight.bold,
 );
@@ -46,8 +46,16 @@ const TextStyle defaultParaStyle = TextStyle(
 
 const TextStyle appBarTextStyle = TextStyle(
   fontFamily: 'Monsserat',
-  fontSize: 24,
+  fontSize: 20,
   color: reverseTextColor,
+  fontWeight: FontWeight.bold,
+);
+
+const TextStyle appBarTextStyleNormal = TextStyle(
+  fontFamily: 'Monsserat',
+  fontSize: 16,
+  color: reverseTextColor,
+  fontWeight: FontWeight.normal,
 );
 
 const TextStyle defaultBoldWashTextStyle = TextStyle(
