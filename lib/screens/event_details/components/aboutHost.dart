@@ -24,14 +24,14 @@ class AboutHost extends StatelessWidget {
             width: double.infinity,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Avatar(size: 100.0),
                 SizedBox(width: 16.0),
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       Text(
                         "Jackson",
                         style: headerTextStyle,

@@ -15,51 +15,44 @@ class EventDetail extends StatefulWidget {
 class _EventDetailState extends State<EventDetail> {
   @override
   Widget build(BuildContext context) {
-    //Fake event fetching
-    Future<Event> _getEventDetails() async {
-      await Future.delayed(Duration(seconds: 2));
-      Event event = ModalRoute.of(context).settings.arguments;
-      return event;
-    }
+    Future<Event> _getEventDetails() async =>
+        ModalRoute.of(context).settings.arguments;
 
     return SafeArea(
       child: Scaffold(
-        appBar: CustomedAppBar(),
+        appBar: CustomedAppBar(
+          login: false,
+          reference: true,
+        ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Container(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      InkWell(
-                        onTap: () => Navigator.of(context).pushNamed('/'),
-                        child: Text(
-                          "EVENTS HOME",
-                          style: whiteBtnTextStyle,
-                        ),
-                      ),
-                      Text(
-                        " / ONLINE EVENT",
-                        style: disabledBtnTextStyle,
-                      ),
-                    ],
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  InkWell(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Text(
+                      "EVENTS HOME",
+                      style: whiteBtnTextStyle,
+                    ),
                   ),
-                  SizedBox(height: 16.0),
-                  FutureBuilder(
-                    future: _getEventDetails(),
-                    builder: (BuildContext context,
-                        AsyncSnapshot<dynamic> snapshot) {
-                      if (!snapshot.hasData) {
-                        return CircularProgressIndicator(strokeWidth: 7.0);
-                      }
-                      return ContentContainer(event: snapshot.data);
-                    },
+                  Text(
+                    "\t\t/\t\tONLINE EVENT",
+                    style: disabledBtnTextStyle,
                   ),
                 ],
               ),
-            ),
+              SizedBox(height: 16.0),
+              FutureBuilder(
+                future: _getEventDetails(),
+                builder: (
+                  BuildContext context,
+                  AsyncSnapshot<dynamic> snapshot,
+                ) =>
+                    ContentContainer(event: snapshot.data),
+              ),
+            ],
           ),
         ),
       ),
@@ -77,35 +70,37 @@ class ContentContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Header(
-          title: event.title,
-          date: event.date,
-          spotLeft: event.attendeeLimit - event.reservationCount,
-        ),
-        Divider(
-          height: 50,
-          thickness: 1,
-        ),
-        Details(
-          attending: event.reservationCount,
-          language: event.language,
-          attandeeProficiency: event.attendeeProficiency,
-        ),
-        Divider(
-          height: 50,
-          thickness: 1,
-        ),
-        AboutEvent(
-          description: event.description,
-        ),
-        Divider(
-          height: 50,
-          thickness: 1,
-        ),
-        AboutHost()
-      ],
+    return Expanded(
+      child: ListView(
+        children: <Widget>[
+          Header(
+            title: event.title,
+            date: event.date,
+            spotLeft: event.attendeeLimit - event.reservationCount,
+          ),
+          Divider(
+            height: 50.0,
+            thickness: 1.0,
+          ),
+          Details(
+            attending: event.reservationCount,
+            language: event.language,
+            attandeeProficiency: event.attendeeProficiency,
+          ),
+          Divider(
+            height: 50.0,
+            thickness: 1.0,
+          ),
+          AboutEvent(
+            description: event.description,
+          ),
+          Divider(
+            height: 50.0,
+            thickness: 1.0,
+          ),
+          AboutHost(),
+        ],
+      ),
     );
   }
 }

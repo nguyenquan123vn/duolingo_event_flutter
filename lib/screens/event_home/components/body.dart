@@ -6,7 +6,11 @@ import './eventList.dart';
 import './toggleBtn.dart';
 
 class Body extends StatefulWidget {
-  const Body({Key key}) : super(key: key);
+  final bool login;
+  const Body({
+    Key key,
+    @required this.login,
+  }) : super(key: key);
 
   @override
   _BodyState createState() => _BodyState();
@@ -16,7 +20,11 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+      padding: const EdgeInsets.only(
+        left: 20.0,
+        right: 20.0,
+        top: 10.0,
+      ),
       child: Container(
         child: Column(
           children: <Widget>[
@@ -32,6 +40,7 @@ class _BodyState extends State<Body> {
                 ),
               ],
             ),
+/*
             SizedBox(height: 16.0),
             Container(
               child: Row(
@@ -45,33 +54,40 @@ class _BodyState extends State<Body> {
                 ],
               ),
             ),
-            SizedBox(height: 16.0),
+*/
+            SizedBox(height: 10.0),
             Expanded(
               child: Container(
                 width: double.infinity,
                 child: EventList(),
               ),
             ),
-            SizedBox(height: 16.0),
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    'Want to start hosting your own event?',
-                    style: defaultBoldTextStyle,
-                  ),
-                  Container(
-                    width: 200,
-                    padding: EdgeInsets.all(20),
-                    child: Button(
-                      label: 'APPLY TO HOST',
-                      type: 'WHITE',
-                      onPressed: () => Navigator.of(context).pushNamed('/host'),
+            SizedBox(height: 10.0),
+            if (widget.login)
+              Container(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      width: 140,
+                      child: Text(
+                        'Want to start hosting your own event?',
+                        style: defaultBoldTextStyle,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                  ),
-                ],
+                    Container(
+                      width: 180,
+                      padding: EdgeInsets.all(10.0),
+                      child: Button(
+                        label: 'APPLY TO HOST',
+                        type: 'WHITE',
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed('/apply'),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
           ],
         ),
       ),

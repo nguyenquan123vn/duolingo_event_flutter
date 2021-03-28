@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
 
 class Button extends StatefulWidget {
-  const Button({Key key, this.label, this.type, this.onPressed})
+  const Button({Key key, this.label, this.type, @required this.onPressed})
       : super(key: key);
 
   final String label;

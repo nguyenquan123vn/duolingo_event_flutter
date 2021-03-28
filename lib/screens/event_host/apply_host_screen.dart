@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/models/query.dart';
-import 'components/hostcontroller.dart';
+import 'components/apply.dart';
 
 class ApplyHost extends StatefulWidget {
   @override
@@ -205,7 +205,7 @@ class _ApplyHostState extends State<ApplyHost> {
       color: themedBackgroundColor,
       child: (_index < _questions.length)
           ? Controller(_answerQuestion, _index, _questions)
-          : Container(child: Text('DONE')),
+          : Center(child: CircularProgressIndicator(strokeWidth: 7.0)),
     );
   }
 }

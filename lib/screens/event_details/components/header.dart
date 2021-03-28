@@ -35,6 +35,7 @@ class Header extends StatelessWidget {
         Button(
           label: "RESERVE SPOT",
           type: "PRIMARY",
+          onPressed: () {},
         ),
       ],
     );

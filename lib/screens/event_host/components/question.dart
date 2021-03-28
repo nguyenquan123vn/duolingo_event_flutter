@@ -14,9 +14,12 @@ class Question extends StatelessWidget {
       child: (questionIndex == 'duolingo')
           ? Column(
               children: <Widget>[
-                Text(
-                  'ｄｕｏｌｉｎｇｏ',
-                  style: logoTextStyle,
+                Container(
+                  padding: EdgeInsets.all(20.0),
+                  child: Text(
+                    'ｄｕｏｌｉｎｇｏ',
+                    style: logoTextStyle,
+                  ),
                 ),
                 Text(
                   questionText,

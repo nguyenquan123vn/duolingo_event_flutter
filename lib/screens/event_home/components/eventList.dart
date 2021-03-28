@@ -59,9 +59,7 @@ class _EventListState extends State<EventList> {
 
     return ListView.builder(
       itemCount: events.length,
-      itemBuilder: (context, index) {
-        return EventTile(event: events[index]);
-      },
+      itemBuilder: (context, index) => EventTile(event: events[index]),
     );
   }
 }

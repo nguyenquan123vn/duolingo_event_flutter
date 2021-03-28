@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
+import './avatar.dart';
 import './button.dart';
 
 class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final double _prefferedHeight = 69.0;
+  final double prefferedHeight = 69.0;
+  final bool login;
+  final bool
+      reference; // Check whether a widget should be able to navigate to a new route
+
+  CustomedAppBar({
+    @required this.reference,
+    @required this.login,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: _prefferedHeight,
+      height: prefferedHeight,
       color: defaultBrandColor,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 18.0),
@@ -30,13 +39,22 @@ class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-            Expanded(
-              child: Button(
-                label: "LOGIN",
-                type: "WHITE",
-                onPressed: () => Navigator.of(context).pushNamed('/login'),
-              ),
-            ),
+            if (login)
+              if (reference)
+                InkWell(
+                  child: Avatar(size: 20.0),
+                  onTap: () => Navigator.of(context).pushNamed('/host'),
+                )
+              else
+                Avatar(size: 20.0)
+            else
+              Expanded(
+                child: Button(
+                  label: "LOGIN",
+                  type: "WHITE",
+                  onPressed: () => Navigator.of(context).pushNamed('/login'),
+                ),
+              )
           ],
         ),
       ),
@@ -44,5 +62,5 @@ class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(_prefferedHeight);
+  Size get preferredSize => Size.fromHeight(prefferedHeight);
 }
