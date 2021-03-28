@@ -52,7 +52,7 @@ class _Login extends State<Login> {
                 Button(
                   label: "CREATE ACCOUNT",
                   type: "PRIMARY",
-                  onPressed: () => Navigator.of(context).pushNamed('/signUp'),
+                  onPressed: () => Navigator.of(context).pushNamed('/signup'),
                 ),
                 SocialLoginButtons(),
                 AgreeTermsContainer(),
@@ -69,7 +69,9 @@ class _Login extends State<Login> {
         _logInKey2.currentState.validate()) {
       try {
         FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: _emailController.text, password: _passwordController.text);
+          email: _emailController.text,
+          password: _passwordController.text,
+        );
       } catch (e) {
         print("Logged in.");
       }

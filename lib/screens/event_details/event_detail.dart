@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/global/widget/appBar.dart';
 import 'package:duolingo_event_app/models/event.dart';
-import 'components/aboutEvent.dart';
-import 'components/aboutHost.dart';
-import 'components/details.dart';
-import 'components/header.dart';
+import 'components/contents.dart';
 
 class EventDetail extends StatefulWidget {
   @override
@@ -50,56 +47,11 @@ class _EventDetailState extends State<EventDetail> {
                   BuildContext context,
                   AsyncSnapshot<dynamic> snapshot,
                 ) =>
-                    ContentContainer(event: snapshot.data),
+                    Content(event: snapshot.data),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class ContentContainer extends StatelessWidget {
-  const ContentContainer({
-    Key key,
-    @required this.event,
-  }) : super(key: key);
-
-  final Event event;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        children: <Widget>[
-          Header(
-            title: event.title,
-            date: event.date,
-            spotLeft: event.attendeeLimit - event.reservationCount,
-          ),
-          Divider(
-            height: 50.0,
-            thickness: 1.0,
-          ),
-          Details(
-            attending: event.reservationCount,
-            language: event.language,
-            attandeeProficiency: event.attendeeProficiency,
-          ),
-          Divider(
-            height: 50.0,
-            thickness: 1.0,
-          ),
-          AboutEvent(
-            description: event.description,
-          ),
-          Divider(
-            height: 50.0,
-            thickness: 1.0,
-          ),
-          AboutHost(),
-        ],
       ),
     );
   }
