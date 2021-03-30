@@ -199,12 +199,24 @@ class _ApplyHostState extends State<ApplyHost> {
     });
   }
 
+  void _nextQuestion() {
+    setState(() {
+      _index++;
+    });
+  }
+
+  void _previousQuestion() {
+    setState(() {
+      _index--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
       color: themedBackgroundColor,
       child: (_index < _questions.length)
-          ? Controller(_answerQuestion, _index, _questions)
+          ? Controller(_answerQuestion, _nextQuestion, _previousQuestion, _index, _questions)
           : Center(child: CircularProgressIndicator(strokeWidth: 7.0)),
     );
   }
