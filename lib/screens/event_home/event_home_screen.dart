@@ -85,7 +85,6 @@ class _EventsScreenState extends State<EventsScreen> {
                           padding: EdgeInsets.all(10.0),
                           child: Button(
                             label: 'APPLY TO HOST',
-                            type: 'WHITE',
                             onPressed: () =>
                                 Navigator.of(context).pushNamed('/apply'),
                           ),

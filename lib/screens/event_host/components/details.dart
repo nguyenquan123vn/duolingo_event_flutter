@@ -41,7 +41,6 @@ class Details extends StatelessWidget {
           Expanded(
             child: Button(
               label: 'LOGOUT',
-              type: 'WHITE',
               onPressed: () {
                 Navigator.of(context).popUntil((route) => route.isFirst);
                 Navigator.of(context).pushReplacementNamed('/');
