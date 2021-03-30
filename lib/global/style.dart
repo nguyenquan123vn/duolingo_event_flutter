@@ -4,8 +4,9 @@ const Color logoColor = Color.fromRGBO(89, 204, 3, 1.0);
 
 const Color defaultBackgroundColor = Color.fromRGBO(255, 255, 255, 1.0);
 
-const Color themedBackgroundColor =
-    Color.fromRGBO(34, 32, 72, 1.0); // Dark blue
+const Color themedBackgroundColor = Color.fromRGBO(34, 32, 72, 1.0); // Dark blue
+
+const Color themedPrimaryColor = Color.fromRGBO(88,204,2,1); // Green
 
 const Color defaultBrandColor = Color.fromRGBO(28, 176, 246, 1.0);
 
@@ -76,6 +77,14 @@ const TextStyle primaryBtnTextStyle = TextStyle(
   fontFamily: 'Roboto',
   fontSize: 14,
   color: reverseTextColor,
+  fontWeight: FontWeight.bold,
+);
+
+const TextStyle questionTextStyle = TextStyle(
+  fontFamily: 'Roboto',
+  fontSize: 16,
+  color: reverseTextColor,
+  height: 2.0,
   fontWeight: FontWeight.bold,
 );
 
