@@ -3,21 +3,29 @@ import 'package:duolingo_event_app/global/style.dart';
 import './avatar.dart';
 import './button.dart';
 
-class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
+class DuolingoAppBar extends StatefulWidget implements PreferredSizeWidget {
   final double prefferedHeight = 69.0;
   final bool login;
-  final bool
-      reference; // Check whether a widget should be able to navigate to a new route
+  final bool reference;
 
-  CustomedAppBar({
-    @required this.reference,
+  const DuolingoAppBar({
+    Key key,
     @required this.login,
-  });
+    @required this.reference,
+  }) : super(key: key);
 
+  @override
+  _DuolingoAppBarState createState() => _DuolingoAppBarState();
+
+  @override
+  Size get preferredSize => Size.fromHeight(prefferedHeight);
+}
+
+class _DuolingoAppBarState extends State<DuolingoAppBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: prefferedHeight,
+      height: widget.prefferedHeight,
       color: defaultBrandColor,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 18.0),
@@ -39,8 +47,8 @@ class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-            if (login)
-              if (reference)
+            if (widget.login)
+              if (widget.reference)
                 InkWell(
                   child: Avatar(size: 20.0),
                   onTap: () => Navigator.of(context).pushNamed('/host'),
@@ -60,7 +68,4 @@ class CustomedAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-
-  @override
-  Size get preferredSize => Size.fromHeight(prefferedHeight);
 }

@@ -8,7 +8,7 @@ class HostDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: CustomedAppBar(
+        appBar: DuolingoAppBar(
           login: true,
           reference: false,
         ),

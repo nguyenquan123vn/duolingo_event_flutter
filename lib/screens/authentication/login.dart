@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/global/widget/button.dart';
-import 'components/agreeTerms.dart';
 import 'components/input.dart';
-import 'components/socialLoginBtn.dart';
+import 'components/socialLogin.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -14,8 +13,8 @@ class Login extends StatefulWidget {
 class _Login extends State<Login> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-  final _logInKey1 = GlobalKey<FormState>();
-  final _logInKey2 = GlobalKey<FormState>();
+  GlobalKey<FormState> _email = GlobalKey();
+  GlobalKey<FormState> _password = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -37,46 +36,43 @@ class _Login extends State<Login> {
                 InputBuilder(
                   label: "Email",
                   controller: _emailController,
-                  formKey: _logInKey1,
+                  formKey: _email,
                 ),
                 InputBuilder(
                   label: "Password",
                   controller: _passwordController,
-                  formKey: _logInKey2,
+                  formKey: _password,
                 ),
                 Button(
                   label: "LOGIN",
                   type: "PRIMARY",
-                  onPressed: signIn,
+                  onPressed: () {
+                    if (_email.currentState.validate() &&
+                        _password.currentState.validate()) {
+                      Navigator.of(context).popUntil((route) => route.isFirst);
+                      Navigator.of(context).pushReplacementNamed('//');
+                    }
+                  },
                 ),
                 Button(
                   label: "CREATE ACCOUNT",
                   type: "PRIMARY",
-                  onPressed: () => Navigator.of(context).pushNamed('/signup'),
+                  onPressed: () => Navigator.of(context).pushReplacementNamed('/signup'),
                 ),
-                SocialLoginButtons(),
-                AgreeTermsContainer(),
+                SocialLogin(),
+                Container(
+                  width: 243,
+                  child: Text(
+                    'By signing in to Duolingo, you agree to our Terms and Privacy Policy.',
+                    textAlign: TextAlign.center,
+                    style: defaultParaStyle,
+                  ),
+                ),
               ],
             ),
           ),
         ),
       ),
     );
-  }
-
-  Future<void> signIn() async {
-    if (_logInKey1.currentState.validate() &&
-        _logInKey2.currentState.validate()) {
-      try {
-        FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _emailController.text,
-          password: _passwordController.text,
-        );
-      } catch (e) {
-        print("Logged in.");
-      }
-    } else {
-      print("Havent logged in.");
-    }
   }
 }

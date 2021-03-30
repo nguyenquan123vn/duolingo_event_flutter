@@ -7,8 +7,8 @@ import 'screens/event_host/host_detail.dart';
 import 'screens/event_host/apply_host_screen.dart';
 
 class RouteGenerator {
-
   static const homePage = '/';
+  static const homePageLogin = '//';
   static const signUpPage = '/signup';
   static const loginPage = '/login';
   static const eventDetailPage = '/detail';
@@ -16,16 +16,22 @@ class RouteGenerator {
   static const applyHost = '/apply';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-
     switch (settings.name) {
       case RouteGenerator.signUpPage:
         return MaterialPageRoute<dynamic>(builder: (_) => SignUp());
       case RouteGenerator.loginPage:
         return MaterialPageRoute<dynamic>(builder: (_) => Login());
       case RouteGenerator.homePage:
-        return MaterialPageRoute<dynamic>(builder: (_) => EventsScreen());
+        return MaterialPageRoute<dynamic>(
+            builder: (_) => EventsScreen(login: false));
+      case RouteGenerator.homePageLogin:
+        return MaterialPageRoute<dynamic>(
+            builder: (_) => EventsScreen(login: true));
       case RouteGenerator.eventDetailPage:
-        return MaterialPageRoute<dynamic>(builder: (_) => EventDetail(), settings: settings);
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => EventDetail(),
+          settings: settings,
+        );
       case RouteGenerator.hostDetail:
         return MaterialPageRoute<dynamic>(builder: (_) => HostDetail());
       case RouteGenerator.applyHost:

@@ -2,19 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
 
 class InputBuilder extends StatefulWidget {
-  const InputBuilder({Key key, this.label, this.controller, this.formKey})
-      : super(key: key);
+  const InputBuilder({
+    Key key,
+    this.label,
+    this.controller,
+    this.formKey,
+  }) : super(key: key);
 
   final String label;
   final TextEditingController controller;
   final GlobalKey formKey;
 
   @override
-  InputBuilderState createState() => InputBuilderState();
+  _InputBuilderState createState() => _InputBuilderState();
 }
 
-class InputBuilderState extends State<InputBuilder> {
-  Icon suffixIconSwitch(label) {
+class _InputBuilderState extends State<InputBuilder> {
+  Icon _suffixIconSwitch(label) {
     switch (label) {
       case "Password":
         return Icon(Icons.lock, color: iconColor);
@@ -53,7 +57,7 @@ class InputBuilderState extends State<InputBuilder> {
             hintText: widget.label,
             hintStyle: defaultBoldWashTextStyle,
             errorStyle: dangerTextStyle,
-            suffixIcon: suffixIconSwitch(widget.label),
+            suffixIcon: _suffixIconSwitch(widget.label),
           ),
           obscureText: widget.label == 'Password' ? true : false,
         ),
