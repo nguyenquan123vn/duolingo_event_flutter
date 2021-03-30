@@ -31,28 +31,28 @@ class _SignUp extends State<SignUp> {
               children: <Widget>[
                 Container(
                   child: Text(
-                    "Create your profile",
+                    'Create your profile',
                     style: headerTextStyle,
                   ),
                 ),
                 InputBuilder(
-                  label: "Username",
+                  label: 'Username',
                   controller: _usernameController,
                   formKey: _username,
                 ),
                 InputBuilder(
-                  label: "Email",
+                  label: 'Email',
                   controller: _emailController,
                   formKey: _email,
                 ),
                 InputBuilder(
-                  label: "Password",
+                  label: 'Password',
                   controller: _passwordController,
                   formKey: _password,
                 ),
                 Button(
-                  label: "CREATE ACCOUNT",
-                  type: "PRIMARY",
+                  label: 'CREATE ACCOUNT',
+                  type: 'PRIMARY',
                   onPressed: () {
                     if (_username.currentState.validate() &&
                         _email.currentState.validate() &&

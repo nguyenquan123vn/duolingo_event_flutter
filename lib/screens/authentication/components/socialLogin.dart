@@ -13,8 +13,8 @@ class SocialLogin extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: Button(
-            label: "FACEBOOK",
-            type: "WHITE",
+            label: 'FACEBOOK',
+            type: 'WHITE',
             onPressed: () {
               Navigator.of(context).popUntil((route) => route.isFirst);
               Navigator.of(context).pushReplacementNamed('//');
@@ -24,8 +24,8 @@ class SocialLogin extends StatelessWidget {
         SizedBox(width: 20.0),
         Expanded(
           child: Button(
-            label: "GOOGLE",
-            type: "WHITE",
+            label: 'GOOGLE',
+            type: 'WHITE',
             onPressed: () {
               Navigator.of(context).popUntil((route) => route.isFirst);
               Navigator.of(context).pushReplacementNamed('//');

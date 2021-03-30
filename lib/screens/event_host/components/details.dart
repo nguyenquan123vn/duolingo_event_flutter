@@ -34,6 +34,20 @@ class Details extends StatelessWidget {
           Center(
             child: CircularProgressIndicator(strokeWidth: 7.0),
           ),
+          Divider(
+            height: 50.0,
+            thickness: 1.0,
+          ),
+          Expanded(
+            child: Button(
+              label: 'LOGOUT',
+              type: 'WHITE',
+              onPressed: () {
+                Navigator.of(context).popUntil((route) => route.isFirst);
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            ),
+          ),
         ],
       ),
     );

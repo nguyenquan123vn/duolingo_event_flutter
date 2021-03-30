@@ -20,11 +20,11 @@ class InputBuilder extends StatefulWidget {
 class _InputBuilderState extends State<InputBuilder> {
   Icon _suffixIconSwitch(label) {
     switch (label) {
-      case "Password":
+      case 'Password':
         return Icon(Icons.lock, color: iconColor);
-      case "Email":
+      case 'Email':
         return Icon(Icons.mail, color: iconColor);
-      case "Username":
+      case 'Username':
         return Icon(Icons.people, color: iconColor);
         break;
       default:

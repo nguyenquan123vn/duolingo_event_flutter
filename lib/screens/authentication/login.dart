@@ -29,23 +29,23 @@ class _Login extends State<Login> {
               children: <Widget>[
                 Container(
                   child: Text(
-                    "Login",
+                    'Login',
                     style: headerTextStyle,
                   ),
                 ),
                 InputBuilder(
-                  label: "Email",
+                  label: 'Email',
                   controller: _emailController,
                   formKey: _email,
                 ),
                 InputBuilder(
-                  label: "Password",
+                  label: 'Password',
                   controller: _passwordController,
                   formKey: _password,
                 ),
                 Button(
-                  label: "LOGIN",
-                  type: "PRIMARY",
+                  label: 'LOGIN',
+                  type: 'PRIMARY',
                   onPressed: () {
                     if (_email.currentState.validate() &&
                         _password.currentState.validate()) {
@@ -55,8 +55,8 @@ class _Login extends State<Login> {
                   },
                 ),
                 Button(
-                  label: "CREATE ACCOUNT",
-                  type: "PRIMARY",
+                  label: 'CREATE ACCOUNT',
+                  type: 'PRIMARY',
                   onPressed: () => Navigator.of(context).pushReplacementNamed('/signup'),
                 ),
                 SocialLogin(),
