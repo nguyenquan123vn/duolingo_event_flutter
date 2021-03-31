@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:duolingo_event_app/screens/auth_page.dart';
 import 'screens/authentication/login.dart';
 import 'screens/authentication/signUp.dart';
 import 'screens/event_details/event_detail.dart';
@@ -7,7 +8,7 @@ import 'screens/event_host/host_detail.dart';
 import 'screens/event_host/apply_host_screen.dart';
 
 class RouteGenerator {
-  static const homePage = '/';
+  static const homePage = '/home';
   static const homePageLogin = '//';
   static const signUpPage = '/signup';
   static const loginPage = '/login';
@@ -19,8 +20,6 @@ class RouteGenerator {
     switch (settings.name) {
       case RouteGenerator.signUpPage:
         return MaterialPageRoute<dynamic>(builder: (_) => SignUp());
-      case RouteGenerator.loginPage:
-        return MaterialPageRoute<dynamic>(builder: (_) => Login());
       case RouteGenerator.homePage:
         return MaterialPageRoute<dynamic>(
             builder: (_) => EventsScreen(login: false));

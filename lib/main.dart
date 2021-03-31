@@ -1,23 +1,42 @@
 import 'package:duolingo_event_app/provider/eventFilter.dart';
+import 'package:duolingo_event_app/service/firebase_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import './route_generator.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:duolingo_event_app/route_generator.dart';
+import 'package:duolingo_event_app/screens/auth_page.dart';
+import 'package:duolingo_event_app/service/authentication_service.dart';
+import 'package:duolingo_event_app/screens/authBuilder.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => EventFilter(),
-      child: MaterialApp(
-        title: 'Duolingo Events',
-        debugShowCheckedModeBanner: false,
-        initialRoute: '/',
-        onGenerateRoute: RouteGenerator.onGenerateRoute,
-      ),
+    return MultiProvider(
+      providers: [
+        Provider<AuthService>(
+            create: (_) => FirebaseAuthService(),
+            dispose: (_, AuthService authService) => authService.dispose()),
+        ChangeNotifierProvider(create: (context) => EventFilter()),
+      ],
+      child: AuthWidgetBuilder(builder:
+          (BuildContext context, AsyncSnapshot<MyAppUser> userSnapshot) {
+        return MaterialApp(
+          title: 'Duolingo Events',
+          debugShowCheckedModeBanner: false,
+          home: AuthWidget(
+            userSnapshot: userSnapshot,
+          ),
+          onGenerateRoute: RouteGenerator.onGenerateRoute,
+        );
+      }),
     );
   }
 }

@@ -1,5 +1,7 @@
+import 'package:duolingo_event_app/service/authentication_service.dart';
 import 'package:flutter/material.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/global/widget/button.dart';
 import 'components/input.dart';
@@ -48,16 +50,14 @@ class _Login extends State<Login> {
                   type: 'PRIMARY',
                   onPressed: () {
                     if (_email.currentState.validate() &&
-                        _password.currentState.validate()) {
-                      Navigator.of(context).popUntil((route) => route.isFirst);
-                      Navigator.of(context).pushReplacementNamed('//');
-                    }
+                        _password.currentState.validate()) {}
                   },
                 ),
                 Button(
                   label: 'CREATE ACCOUNT',
                   type: 'PRIMARY',
-                  onPressed: () => Navigator.of(context).pushReplacementNamed('/signup'),
+                  onPressed: () =>
+                      Navigator.of(context).pushReplacementNamed('/signup'),
                 ),
                 SocialLogin(),
                 Container(

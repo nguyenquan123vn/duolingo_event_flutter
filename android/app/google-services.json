@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "677115987259",
-    "project_id": "duolingo-event-flutter",
-    "storage_bucket": "duolingo-event-flutter.appspot.com"
+    "project_number": "696689040614",
+    "project_id": "btl-flutter-b5fd8",
+    "storage_bucket": "btl-flutter-b5fd8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:677115987259:android:e563a7b4e9dc7f6037631e",
+        "mobilesdk_app_id": "1:696689040614:android:5eadcddf4169a626056f27",
         "android_client_info": {
           "package_name": "com.example.duolingo_event_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "677115987259-bl1ulqn188mik57knvf7omsiv6fjonkp.apps.googleusercontent.com",
+          "client_id": "696689040614-bjgg85nuvejbm0u8r4kef5hin9j9ppfp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBMD6y_I3qtenNl6ok2BC5ZEsPj-FRre2E"
+          "current_key": "AIzaSyC0yDx5I3UQYMjhLgvbCj7jNuHyzb7Uf6k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "677115987259-bl1ulqn188mik57knvf7omsiv6fjonkp.apps.googleusercontent.com",
+              "client_id": "696689040614-bjgg85nuvejbm0u8r4kef5hin9j9ppfp.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
