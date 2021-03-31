@@ -1,39 +1,40 @@
 {
-  "project_info": {
-    "project_number": "696689040614",
-    "project_id": "btl-flutter-b5fd8",
-    "storage_bucket": "btl-flutter-b5fd8.appspot.com"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:696689040614:android:bbae044fbef4ded7056f27",
-        "android_client_info": {
-          "package_name": "com.example.duolingo_event_app"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "696689040614-bjgg85nuvejbm0u8r4kef5hin9j9ppfp.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC0yDx5I3UQYMjhLgvbCj7jNuHyzb7Uf6k"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "696689040614-bjgg85nuvejbm0u8r4kef5hin9j9ppfp.apps.googleusercontent.com",
-              "client_type": 3
+    "project_info": {
+        "project_number": "696689040614",
+        "project_id": "btl-flutter-b5fd8",
+        "storage_bucket": "btl-flutter-b5fd8.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:696689040614:android:bbae044fbef4ded7056f27",
+            "android_client_info": {
+                "package_name": "com.example.duolingo_event_app"
             }
-          ]
+        },
+        "oauth_client": [{
+                "client_id": "696689040614-5hiqiieo9o8806m1qq7bd030vjk2mbuo.apps.googleusercontent.com",
+                "client_type": 1,
+                "android_info": {
+                    "package_name": "com.example.duolingo_event_app",
+                    "certificate_hash": "706a8af05cff70beb81f7cfc91d6f3930ae3ea76"
+                }
+            },
+            {
+                "client_id": "696689040614-bjgg85nuvejbm0u8r4kef5hin9j9ppfp.apps.googleusercontent.com",
+                "client_type": 3
+            }
+        ],
+        "api_key": [{
+            "current_key": "AIzaSyC0yDx5I3UQYMjhLgvbCj7jNuHyzb7Uf6k"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "696689040614-bjgg85nuvejbm0u8r4kef5hin9j9ppfp.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
         }
-      }
-    }
-  ],
-  "configuration_version": "1"
+    }],
+    "configuration_version": "1"
 }

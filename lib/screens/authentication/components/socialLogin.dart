@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:duolingo_event_app/global/widget/button.dart';
+import 'package:duolingo_event_app/service/authentication_service.dart';
 
 class SocialLogin extends StatelessWidget {
   const SocialLogin({
@@ -8,6 +10,8 @@ class SocialLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthService auth = context.read<AuthService>();
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -17,8 +21,7 @@ class SocialLogin extends StatelessWidget {
             label: 'FACEBOOK',
             type: 'WHITE',
             onPressed: () {
-              Navigator.of(context).popUntil((route) => route.isFirst);
-              Navigator.of(context).pushReplacementNamed('//');
+              //auth.signInWithFacebook();
             },
           ),
         ),
@@ -28,9 +31,8 @@ class SocialLogin extends StatelessWidget {
             icon: Image.asset('assets/icons/google.jpg'),
             label: 'GOOGLE',
             type: 'WHITE',
-            onPressed: () {
-              Navigator.of(context).popUntil((route) => route.isFirst);
-              Navigator.of(context).pushReplacementNamed('//');
+            onPressed: () async {
+              await auth.signInWithGoogle();
             },
           ),
         ),
