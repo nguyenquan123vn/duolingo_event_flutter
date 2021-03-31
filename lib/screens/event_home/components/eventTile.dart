@@ -14,7 +14,7 @@ class EventTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle switchTextStyle(spotLeft) {
-      if (spotLeft == 0) {
+      if (spotLeft <= 0) {
         return dangerTextStyle;
       } else if (spotLeft < 10 && spotLeft > 0) {
         return warnTextStyle;
@@ -24,11 +24,13 @@ class EventTile extends StatelessWidget {
     }
 
     String switchText(spotLeft) {
-      return spotLeft != 0
-          ? spotLeft > 20
-              ? "20+ spots left"
-              : "$spotLeft spots left"
-          : "No spots left";
+      if (spotLeft > 0) {
+        if (spotLeft > 20)
+          return "20+ spots left";
+        else
+          return "$spotLeft spots left";
+      } else
+        return "No spots left";
     }
 
     String weekDate(weekDay) {
@@ -114,14 +116,17 @@ class EventTile extends StatelessWidget {
           arguments: event,
         ),
         child: ListTile(
-          leading: Avatar(size: 30.0),
+          leading: Avatar(
+            url: event.url,
+            size: 30.0,
+          ),
           title: Container(
             padding: EdgeInsets.only(
               left: 10.0,
               top: 10.0,
             ),
             child: Text(
-              '${weekDate(event.date.weekday)} ${event.date.day} ${monthDate(event.date.month)}\n${event.date.hour}H00 - ${event.date.hour + 1}H00',
+              '${weekDate(event.date.weekday)}, ${monthDate(event.date.month)} ${event.date.day}\n${event.date.hour}:00 - ${event.date.hour + 1}:00',
               style: defaultBoldWashTextStyle,
             ),
           ),

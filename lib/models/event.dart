@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class Event {
   final int attendeeLimit;
   final String attendeeProficiency;
@@ -11,21 +13,23 @@ class Event {
   final String startDate;
   final String timeZone;
   final String title;
+  final String url;
 
   DateTime date;
   Event({
-    this.attendeeLimit,
-    this.attendeeProficiency,
-    this.description,
-    this.duration,
-    this.eventId,
-    this.hostId,
-    this.language,
-    this.recurrencePattern,
-    this.reservationCount,
-    this.startDate,
-    this.timeZone,
-    this.title,
+    @required this.attendeeLimit,
+    @required this.attendeeProficiency,
+    @required this.description,
+    @required this.duration,
+    @required this.eventId,
+    @required this.hostId,
+    @required this.language,
+    @required this.recurrencePattern,
+    @required this.reservationCount,
+    @required this.startDate,
+    @required this.timeZone,
+    @required this.title,
+    @required this.url,
   }) {
     date = DateTime.parse(startDate);
   }
