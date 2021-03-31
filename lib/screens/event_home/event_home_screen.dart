@@ -19,7 +19,6 @@ class EventsScreen extends StatefulWidget {
 class _EventsScreenState extends State<EventsScreen> {
   @override
   Widget build(BuildContext context) {
-
     GlobalKey<ScaffoldState> _key = GlobalKey();
     final user = context.read<MyAppUser>();
 
