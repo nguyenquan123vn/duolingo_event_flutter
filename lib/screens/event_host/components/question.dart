@@ -23,14 +23,14 @@ class Question extends StatelessWidget {
                 ),
                 Text(
                   questionText,
-                  style: defaultBoldWashTextStyle,
+                  style: questionTextStyle,
                   textAlign: TextAlign.center,
                 ),
               ],
             )
           : Text(
               '$questionIndex. $questionText',
-              style: primaryBtnTextStyle,
+              style: questionTextStyle,
               textAlign: TextAlign.center,
             ),
     );

@@ -19,15 +19,27 @@ class Button extends StatefulWidget {
 }
 
 class _ButtonState extends State<Button> {
+  Color _buttonColorSwitch(type) {
+    switch (type) {
+      case 'PRIMARY':
+        return defaultBrandColor;
+      case 'HOST':
+        return themedPrimaryColor;
+      case 'WHITE':
+        return defaultBackgroundColor;
+        break;
+      default:
+        return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 45.0,
       width: double.infinity,
       decoration: BoxDecoration(
-          color: widget.type == 'PRIMARY'
-              ? defaultBrandColor
-              : defaultBackgroundColor,
+          color: _buttonColorSwitch(widget.type),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
               width: 1.0,
@@ -52,9 +64,9 @@ class _ButtonState extends State<Button> {
                     ])
               : Text(
                   widget.label,
-                  style: widget.type == 'PRIMARY'
-                      ? primaryBtnTextStyle
-                      : whiteBtnTextStyle,
+                  style: widget.type == 'WHITE'
+                      ? whiteBtnTextStyle
+                      : primaryBtnTextStyle,
                 ),
         ),
         onPressed: widget.onPressed,

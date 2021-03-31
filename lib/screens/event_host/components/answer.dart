@@ -14,7 +14,7 @@ class Answer extends StatelessWidget {
       child: Button(
         label:
             (answerIndex == null) ? '$answerText' : '$answerIndex. $answerText',
-        type: 'PRIMARY',
+        type: 'HOST',
         onPressed: selectHandler,
       ),
     );
