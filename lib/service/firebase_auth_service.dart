@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:duolingo_event_app/service/authentication_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-//import 'package:flutter_login_facebook/flutter_login_facebook.dart';
+import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthService implements AuthService {
@@ -109,7 +109,7 @@ class FirebaseAuthService implements AuthService {
           code: 'ERROR_ABORTED_BY_USER', message: 'Sign in aborted by user');
     }
   }
-  /*
+
   @override
   Future<MyAppUser> signInWithFacebook() async {
     final fb = FacebookLogin();
@@ -138,7 +138,6 @@ class FirebaseAuthService implements AuthService {
         throw UnimplementedError();
     }
   }
-  */
 
   @override
   Future<MyAppUser> currentUser() async {

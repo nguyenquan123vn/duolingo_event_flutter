@@ -21,7 +21,7 @@ class SocialLogin extends StatelessWidget {
             label: 'FACEBOOK',
             type: 'WHITE',
             onPressed: () {
-              //auth.signInWithFacebook();
+              auth.signInWithFacebook();
             },
           ),
         ),

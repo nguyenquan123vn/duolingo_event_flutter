@@ -35,7 +35,7 @@ abstract class AuthService {
     @required String androidMinimumVersion,
   });
   Future<MyAppUser> signInWithGoogle();
-  //Future<MyAppUser> signInWithFacebook();
+  Future<MyAppUser> signInWithFacebook();
   Future<void> signOut();
   Stream<MyAppUser> get onAuthStateChanged;
   void dispose();
