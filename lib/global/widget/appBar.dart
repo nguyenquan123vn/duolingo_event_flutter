@@ -1,17 +1,16 @@
+import 'package:duolingo_event_app/service/authentication_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import './avatar.dart';
 import './button.dart';
 
 class DuolingoAppBar extends StatefulWidget implements PreferredSizeWidget {
   final double prefferedHeight = 69.0;
-  final bool login;
-  final bool reference;
+  final Function avatarOnpressed;
 
   const DuolingoAppBar({
-    Key key,
-    @required this.login,
-    @required this.reference,
+    Key key, this.avatarOnpressed,
   }) : super(key: key);
 
   @override
@@ -24,6 +23,8 @@ class DuolingoAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _DuolingoAppBarState extends State<DuolingoAppBar> {
   @override
   Widget build(BuildContext context) {
+    final user = context.read<MyAppUser>();
+    
     return Container(
       height: widget.prefferedHeight,
       color: defaultBrandColor,
@@ -47,22 +48,27 @@ class _DuolingoAppBarState extends State<DuolingoAppBar> {
                 ),
               ),
             ),
-            if (widget.login)
-              if (widget.reference)
-                InkWell(
-                  child: Avatar(size: 20.0),
-                  onTap: () => Navigator.of(context).pushNamed('/host'),
-                )
-              else
-                Avatar(size: 20.0)
-            else
-              Expanded(
-                child: Button(
-                  label: "LOGIN",
-                  type: "WHITE",
-                  onPressed: () => Navigator.of(context).pushNamed('/login'),
-                ),
-              )
+            user == null
+                ? Expanded(
+                    child: Button(
+                      label: "LOGIN",
+                      type: "WHITE",
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed('/login'),
+                    ),
+                  )
+                : InkWell(
+                    // onTap: () => showDialog(
+                    //       context: context,
+                    //       builder: (BuildContext context) => Dialog(
+                    //           child: Button(
+                    //               label: 'Logout',
+                    //               type: 'WHITE',
+                    //               onPressed: null)),
+                    //     ),
+                    onTap: () => widget.avatarOnpressed(),
+                    child: Avatar(size: 20.0)
+                    )
           ],
         ),
       ),

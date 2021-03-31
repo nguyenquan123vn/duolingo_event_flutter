@@ -1,15 +1,16 @@
+import 'package:duolingo_event_app/global/widget/drawer.dart';
+import 'package:duolingo_event_app/service/authentication_service.dart';
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/global/widget/appBar.dart';
 import 'package:duolingo_event_app/global/widget/button.dart';
 import 'components/dropdownBar.dart';
 import 'components/eventList.dart';
+import 'package:provider/provider.dart';
 
 class EventsScreen extends StatefulWidget {
-  final bool login;
   const EventsScreen({
     Key key,
-    this.login,
   }) : super(key: key);
   @override
   _EventsScreenState createState() => _EventsScreenState();
@@ -18,12 +19,16 @@ class EventsScreen extends StatefulWidget {
 class _EventsScreenState extends State<EventsScreen> {
   @override
   Widget build(BuildContext context) {
+
+    GlobalKey<ScaffoldState> _key = GlobalKey();
+    final user = context.read<MyAppUser>();
+
     return SafeArea(
       child: Scaffold(
+        key: _key,
         appBar: DuolingoAppBar(
-          login: widget.login,
-          reference: true,
-        ),
+            avatarOnpressed: () => _key.currentState.openDrawer()),
+        drawer: DuolingoDrawer(),
         body: Padding(
           padding: const EdgeInsets.only(
             left: 20.0,
@@ -68,7 +73,7 @@ class _EventsScreenState extends State<EventsScreen> {
                   ),
                 ),
                 SizedBox(height: 10.0),
-                if (widget.login)
+                if (user != null)
                   Container(
                     child: Column(
                       children: <Widget>[
@@ -85,6 +90,7 @@ class _EventsScreenState extends State<EventsScreen> {
                           padding: EdgeInsets.all(10.0),
                           child: Button(
                             label: 'APPLY TO HOST',
+                            type: 'WHITE',
                             onPressed: () =>
                                 Navigator.of(context).pushNamed('/apply'),
                           ),

@@ -17,10 +17,7 @@ class _EventDetailState extends State<EventDetail> {
 
     return SafeArea(
       child: Scaffold(
-        appBar: DuolingoAppBar(
-          login: true,
-          reference: true,
-        ),
+        appBar: DuolingoAppBar(),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

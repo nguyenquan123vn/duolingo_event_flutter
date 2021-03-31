@@ -8,10 +8,7 @@ class HostDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: DuolingoAppBar(
-          login: true,
-          reference: false,
-        ),
+        appBar: DuolingoAppBar(),
         body: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
