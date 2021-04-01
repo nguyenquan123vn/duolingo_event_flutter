@@ -56,7 +56,6 @@ class _Login extends State<Login> {
                       auth.signInWithEmailAndPassword(
                           _emailController.text, _passwordController.text);
                     }
-                    //print(_emailController.text +  _passwordController.text);
                   },
                 ),
                 Button(

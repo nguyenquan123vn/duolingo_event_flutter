@@ -1,4 +1,5 @@
 import 'package:duolingo_event_app/service/authentication_service.dart';
+import 'package:duolingo_event_app/models/duolingoUser.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:duolingo_event_app/global/style.dart';
@@ -24,7 +25,7 @@ class DuolingoAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _DuolingoAppBarState extends State<DuolingoAppBar> {
   @override
   Widget build(BuildContext context) {
-    final user = context.read<MyAppUser>();
+    final user = context.read<DuolingoUser>();
 
     return Container(
       height: widget.prefferedHeight,

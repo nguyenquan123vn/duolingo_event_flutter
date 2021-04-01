@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:duolingo_event_app/service/authentication_service.dart';
+import 'package:duolingo_event_app/models/duolingoUser.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
@@ -8,25 +9,25 @@ import 'package:google_sign_in/google_sign_in.dart';
 class FirebaseAuthService implements AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  MyAppUser _userFromFirebase(User user) {
+  DuolingoUser _userFromFirebase(User user) {
     if (user == null) {
       return null;
     }
-    return MyAppUser(
+    return DuolingoUser(
       uid: user.uid,
       email: user.email,
+      photoURL: user.photoURL,
       displayName: user.displayName,
-      photoUrl: user.photoURL,
     );
   }
 
   @override
-  Stream<MyAppUser> get onAuthStateChanged {
+  Stream<DuolingoUser> get onAuthStateChanged {
     return _firebaseAuth.authStateChanges().map(_userFromFirebase);
   }
 
   @override
-  Future<MyAppUser> signInWithEmailAndPassword(
+  Future<DuolingoUser> signInWithEmailAndPassword(
       String email, String password) async {
     final UserCredential userCredential =
         await _firebaseAuth.signInWithEmailAndPassword(
@@ -37,7 +38,7 @@ class FirebaseAuthService implements AuthService {
   }
 
   @override
-  Future<MyAppUser> createUserWithEmailAndPassword(
+  Future<DuolingoUser> createUserWithEmailAndPassword(
       String email, String password) async {
     final UserCredential userCredential = await _firebaseAuth
         .createUserWithEmailAndPassword(email: email, password: password);
@@ -50,7 +51,8 @@ class FirebaseAuthService implements AuthService {
   }
 
   @override
-  Future<MyAppUser> signInWithEmailAndLink({String email, String link}) async {
+  Future<DuolingoUser> signInWithEmailAndLink(
+      {String email, String link}) async {
     final UserCredential userCredential =
         await _firebaseAuth.signInWithEmailLink(email: email, emailLink: link);
     return _userFromFirebase(userCredential.user);
@@ -85,7 +87,7 @@ class FirebaseAuthService implements AuthService {
   }
 
   @override
-  Future<MyAppUser> signInWithGoogle() async {
+  Future<DuolingoUser> signInWithGoogle() async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
     final GoogleSignInAccount googleUser = await googleSignIn.signIn();
 
@@ -111,7 +113,7 @@ class FirebaseAuthService implements AuthService {
   }
 
   @override
-  Future<MyAppUser> signInWithFacebook() async {
+  Future<DuolingoUser> signInWithFacebook() async {
     final fb = FacebookLogin();
     final response = await fb.logIn(permissions: [
       FacebookPermission.publicProfile,
@@ -140,7 +142,7 @@ class FirebaseAuthService implements AuthService {
   }
 
   @override
-  Future<MyAppUser> currentUser() async {
+  Future<DuolingoUser> currentUser() async {
     return _userFromFirebase(_firebaseAuth.currentUser);
   }
 
@@ -148,8 +150,8 @@ class FirebaseAuthService implements AuthService {
   Future<void> signOut() async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
     await googleSignIn.signOut();
-    // final FacebookLogin facebookLogin = FacebookLogin();
-    // await facebookLogin.logOut();
+    final FacebookLogin facebookLogin = FacebookLogin();
+    await facebookLogin.logOut();
     return _firebaseAuth.signOut();
   }
 

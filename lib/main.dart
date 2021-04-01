@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:duolingo_event_app/models/duolingoUser.dart';
 import 'package:duolingo_event_app/route_generator.dart';
 import 'package:duolingo_event_app/screens/auth_page.dart';
 import 'package:duolingo_event_app/service/authentication_service.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => EventFilter()),
       ],
       child: AuthWidgetBuilder(builder:
-          (BuildContext context, AsyncSnapshot<MyAppUser> userSnapshot) {
+          (BuildContext context, AsyncSnapshot<DuolingoUser> userSnapshot) {
         return MaterialApp(
           title: 'Duolingo Events',
           debugShowCheckedModeBanner: false,

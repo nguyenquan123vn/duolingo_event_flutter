@@ -1,29 +1,15 @@
 import 'dart:async';
-
 import 'package:meta/meta.dart';
-
-@immutable
-class MyAppUser {
-  const MyAppUser({
-    @required this.uid,
-    this.email,
-    this.photoUrl,
-    this.displayName,
-  });
-
-  final String uid;
-  final String email;
-  final String photoUrl;
-  final String displayName;
-}
+import 'package:duolingo_event_app/models/duolingoUser.dart';
 
 abstract class AuthService {
-  Future<MyAppUser> currentUser();
-  Future<MyAppUser> signInWithEmailAndPassword(String email, String password);
-  Future<MyAppUser> createUserWithEmailAndPassword(
+  Future<DuolingoUser> currentUser();
+  Future<DuolingoUser> signInWithEmailAndPassword(
+      String email, String password);
+  Future<DuolingoUser> createUserWithEmailAndPassword(
       String email, String password);
   Future<void> sendPasswordResetEmail(String email);
-  Future<MyAppUser> signInWithEmailAndLink({String email, String link});
+  Future<DuolingoUser> signInWithEmailAndLink({String email, String link});
   bool isSignInWithEmailLink(String link);
   Future<void> sendSignInWithEmailLink({
     @required String email,
@@ -34,9 +20,9 @@ abstract class AuthService {
     @required bool androidInstallApp,
     @required String androidMinimumVersion,
   });
-  Future<MyAppUser> signInWithGoogle();
-  Future<MyAppUser> signInWithFacebook();
+  Future<DuolingoUser> signInWithGoogle();
+  Future<DuolingoUser> signInWithFacebook();
   Future<void> signOut();
-  Stream<MyAppUser> get onAuthStateChanged;
+  Stream<DuolingoUser> get onAuthStateChanged;
   void dispose();
 }

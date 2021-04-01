@@ -1,5 +1,6 @@
 import 'package:duolingo_event_app/global/widget/drawer.dart';
 import 'package:duolingo_event_app/service/authentication_service.dart';
+import 'package:duolingo_event_app/models/duolingoUser.dart';
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/global/widget/appBar.dart';
@@ -20,7 +21,7 @@ class _EventsScreenState extends State<EventsScreen> {
   @override
   Widget build(BuildContext context) {
     GlobalKey<ScaffoldState> _key = GlobalKey();
-    final user = context.read<MyAppUser>();
+    final user = context.read<DuolingoUser>();
 
     return SafeArea(
       child: Scaffold(
