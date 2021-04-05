@@ -33,4 +33,37 @@ class Event {
   }) {
     date = DateTime.parse(startDate);
   }
+
+  factory Event.fromMap(Map<String, dynamic> json) {
+    return Event(
+        attendeeLimit: json['attendeeLimit'],
+        attendeeProficiency: json['attendeeProficiency'],
+        description: json['description'],
+        duration: json['duration'],
+        eventId: json['eventId'],
+        hostId: json['hostId'],
+        language: json['language'],
+        recurrencePattern: json['recurrencePattern'],
+        reservationCount: json['reservationCount'],
+        startDate: json['startDate'],
+        timeZone: json['timeZone'],
+        title: json['title'],
+        url: json['url']);
+  }
+
+  Map<String, dynamic> toJson() => {
+        'attendeeLimit': attendeeLimit,
+        'attendeeProficiency': attendeeProficiency,
+        'description': description,
+        'duration': duration,
+        'eventId': eventId,
+        'hostId': hostId,
+        'language': language,
+        'recurrencePattern': recurrencePattern,
+        'reservationCount': reservationCount,
+        'startDate': startDate,
+        'timeZone': timeZone,
+        'title': title,
+        'url': url
+      };
 }

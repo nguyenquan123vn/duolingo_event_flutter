@@ -26,4 +26,19 @@ class DuolingoUser {
       photoURL: user.photoURL,
     );
   }
+
+  factory DuolingoUser.fromMap(Map<String, dynamic> json) {
+    return DuolingoUser(
+        uid: json['uid'],
+        email: json['email'],
+        photoURL: json['photoURL'],
+        displayName: json['display_name']);
+  }
+
+  Map<String, dynamic> toJson() => {
+        'uid': uid,
+        'email': email,
+        'photoURL': photoURL,
+        'displayName': displayName
+      };
 }

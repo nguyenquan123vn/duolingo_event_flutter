@@ -1,5 +1,7 @@
 import 'package:duolingo_event_app/provider/eventFilter.dart';
-import 'package:duolingo_event_app/service/firebase_auth_service.dart';
+import 'package:duolingo_event_app/service/authentication/firebase_auth_service.dart';
+import 'package:duolingo_event_app/service/data_services/data_service.dart';
+import 'package:duolingo_event_app/service/data_services/firebase_data_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -7,7 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:duolingo_event_app/models/duolingoUser.dart';
 import 'package:duolingo_event_app/route_generator.dart';
 import 'package:duolingo_event_app/screens/auth_page.dart';
-import 'package:duolingo_event_app/service/authentication_service.dart';
+import 'package:duolingo_event_app/service/authentication/authentication_service.dart';
 import 'package:duolingo_event_app/screens/authBuilder.dart';
 
 Future<void> main() async {
@@ -25,6 +27,9 @@ class MyApp extends StatelessWidget {
         Provider<AuthService>(
             create: (_) => FirebaseAuthService(),
             dispose: (_, AuthService authService) => authService.dispose()),
+        Provider<DataService>(
+            create: (_) => FirebaseDataService(),
+            dispose: (_, DataService dataService) => dataService.dispose()),
         ChangeNotifierProvider(create: (context) => EventFilter()),
       ],
       child: AuthWidgetBuilder(builder:

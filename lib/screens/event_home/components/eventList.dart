@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:duolingo_event_app/models/event.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:duolingo_event_app/service/data_services/data_service.dart';
 import './eventTile.dart';
 
 class EventList extends StatefulWidget {
@@ -11,8 +12,9 @@ class EventList extends StatefulWidget {
 class _EventListState extends State<EventList> {
   @override
   Widget build(BuildContext context) {
+    DataService data = context.read<DataService>();
     //Mock list of event data
-    final List<Event> events = [
+    /* [
       Event(
         attendeeLimit: 40,
         attendeeProficiency: 'INTERMEDIATE',
@@ -115,11 +117,22 @@ class _EventListState extends State<EventList> {
         url:
             'https://s3-alpha-sig.figma.com/img/c88f/0011/e7c353a0d55041457cdc02dfb5941b0e?Expires=1618185600&Signature=SS9E7r0BlUIzKvsKot9oo5og3p~Q8OhZMWNOB74q0ZVSbgq0Y1MdfW1uDuD0wIBNo6~TlXhHYs8rv4CaDXRMr4kgHS8ss2KlG1NU9cjCzc0ae7Gt15EKuNWlZENsS35efNGtLOAjGxNlzi4GvcfwnvmbJ21BMylHgf-jV3lRcXYnU~f1ObvLML4~V1jn5jVEHaZSdHuxAWtScjo4wd4cPHrF-9C5xrGtrqacy0BFnINOpScXq9vXwe1mBTyZ8crd~WRE0YWX05lOrlYqa9AQloT~VOG-WEkQK5QA8UxvroxHhNcxbgTNtqhDMWKEwZJovFgf4AopfiZuMkpAYZTqlw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
       ),
-    ];
-
-    return ListView.builder(
-      itemCount: events.length,
-      itemBuilder: (context, index) => EventTile(event: events[index]),
-    );
+    ]; */
+    return FutureBuilder(
+        future: data.getAllEvent(),
+        initialData: [],
+        builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data.length,
+              itemBuilder: (context, index) =>
+                  EventTile(event: snapshot.data[index]),
+            );
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
   }
 }

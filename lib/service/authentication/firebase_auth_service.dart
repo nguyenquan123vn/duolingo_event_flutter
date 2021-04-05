@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:duolingo_event_app/service/authentication_service.dart';
+import 'package:duolingo_event_app/service/authentication/authentication_service.dart';
 import 'package:duolingo_event_app/models/duolingoUser.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';

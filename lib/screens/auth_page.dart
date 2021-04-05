@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:duolingo_event_app/service/authentication_service.dart';
+import 'package:duolingo_event_app/service/authentication/authentication_service.dart';
 import 'package:duolingo_event_app/models/duolingoUser.dart';
 import 'package:duolingo_event_app/screens/authentication/login.dart';
 import 'package:duolingo_event_app/screens/event_home/event_home_screen.dart';
