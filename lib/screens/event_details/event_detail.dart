@@ -12,8 +12,8 @@ class EventDetail extends StatefulWidget {
 class _EventDetailState extends State<EventDetail> {
   @override
   Widget build(BuildContext context) {
-    Future<Event> _getEventDetails() async =>
-        ModalRoute.of(context).settings.arguments;
+
+    Event event = ModalRoute.of(context).settings.arguments;
 
     return SafeArea(
       child: Scaffold(
@@ -38,14 +38,7 @@ class _EventDetailState extends State<EventDetail> {
                 ],
               ),
               SizedBox(height: 16.0),
-              FutureBuilder(
-                future: _getEventDetails(),
-                builder: (
-                  BuildContext context,
-                  AsyncSnapshot<dynamic> snapshot,
-                ) =>
-                    Content(event: snapshot.data),
-              ),
+              Content(event: event),
             ],
           ),
         ),
