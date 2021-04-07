@@ -35,7 +35,7 @@ class _LanguageOptionValuesState extends State<LanguageOptionValues> {
                   type: "LANGUAGE",
                   onPressed: () {
                     eventFilter.selectLanguage(languageLabel.toUpperCase());
-                    Navigator.of(context, rootNavigator: true).pop('/');
+                    Navigator.of(context).pushNamed('/home');
                   });
             },
           ),
@@ -78,7 +78,7 @@ class _ProficiencyOptionValuesState extends State<ProficiencyOptionValues> {
                       type: "PROFICIENCY",
                       onPressed: () {
                         eventFilter.selectProficiency(level);
-                        Navigator.of(context, rootNavigator: true).pop('/');
+                        Navigator.of(context).pushNamed('/home');
                       })
               ],
             ),
