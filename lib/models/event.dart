@@ -40,7 +40,7 @@ class Event {
         attendeeProficiency: json['attendeeProficiency'],
         description: json['description'],
         duration: json['duration'],
-        eventId: json['eventID'],
+        eventId: json['eventId'],
         hostId: json['hostId'],
         language: json['language'],
         recurrencePattern: json['recurrencePattern'],
