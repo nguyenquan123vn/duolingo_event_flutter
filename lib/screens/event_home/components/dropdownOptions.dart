@@ -5,7 +5,10 @@ import 'package:duolingo_event_app/provider/eventFilter.dart';
 import 'package:duolingo_event_app/screens/event_home/event_home_screen.dart';
 
 class LanguageOptionValues extends StatefulWidget {
-  const LanguageOptionValues({Key key, this.languageValues}) : super(key: key);
+  const LanguageOptionValues({
+    Key key,
+    this.languageValues,
+  }) : super(key: key);
 
   final Map<String, String> languageValues;
 
@@ -25,7 +28,10 @@ class _LanguageOptionValuesState extends State<LanguageOptionValues> {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20.0,
+            vertical: 30.0,
+          ),
           child: ListView.builder(
             itemCount: widget.languageValues.length,
             itemBuilder: (BuildContext context, int index) {
@@ -33,7 +39,7 @@ class _LanguageOptionValuesState extends State<LanguageOptionValues> {
                   widget.languageValues.keys.elementAt(index);
               return OptionValuesContainer(
                   label: languageLabel.toUpperCase(),
-                  type: "LANGUAGE",
+                  type: 'LANGUAGE',
                   onPressed: () {
                     eventFilter.selectLanguage(languageLabel.toUpperCase());
                     Navigator.of(context).pop();
@@ -48,8 +54,10 @@ class _LanguageOptionValuesState extends State<LanguageOptionValues> {
 }
 
 class ProficiencyOptionValues extends StatefulWidget {
-  const ProficiencyOptionValues({Key key, this.proficiencyValues})
-      : super(key: key);
+  const ProficiencyOptionValues({
+    Key key,
+    this.proficiencyValues,
+  }) : super(key: key);
 
   final List<String> proficiencyValues;
 
@@ -73,11 +81,11 @@ class _ProficiencyOptionValuesState extends State<ProficiencyOptionValues> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 for (var level in widget.proficiencyValues)
                   OptionValuesContainer(
                       label: level,
-                      type: "PROFICIENCY",
+                      type: 'PROFICIENCY',
                       onPressed: () {
                         eventFilter.selectProficiency(level);
                         Navigator.of(context).pop();
@@ -117,7 +125,10 @@ class OptionValuesContainer extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Text(label, style: defaultBoldWashTextStyle),
+            child: Text(
+              label,
+              style: defaultBoldWashTextStyle,
+            ),
           ),
         ),
       ),
