@@ -22,6 +22,8 @@ class Content extends StatelessWidget {
             title: event.title,
             date: event.date,
             spotLeft: event.attendeeLimit - event.reservationCount,
+            eventId: event.eventId,
+            reservationCount: event.reservationCount,
           ),
           Divider(
             height: 50.0,
