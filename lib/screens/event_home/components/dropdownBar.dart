@@ -5,7 +5,10 @@ import 'package:duolingo_event_app/provider/eventFilter.dart';
 import './dropdownOptions.dart';
 
 class DropdownBar extends StatefulWidget {
-  const DropdownBar({Key key, this.type}) : super(key: key);
+  const DropdownBar({
+    Key key,
+    this.type,
+  }) : super(key: key);
 
   final String type;
 
@@ -24,7 +27,7 @@ class _DropdownBarState extends State<DropdownBar> {
         if (isOptionValues == true) {
           showDialog(
               context: context,
-              builder: (BuildContext context) => widget.type == "LANGUAGE"
+              builder: (BuildContext context) => widget.type == 'LANGUAGE'
                   ? LanguageOptionValues(languageValues: languages)
                   : ProficiencyOptionValues(proficiencyValues: proficiencies));
         }
@@ -43,7 +46,10 @@ class _DropdownBarState extends State<DropdownBar> {
         decoration: BoxDecoration(
           color: defaultBackgroundColor,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(width: 1.0, color: borderColor),
+          border: Border.all(
+            width: 1.0,
+            color: borderColor,
+          ),
           boxShadow: [defaultShadow],
         ),
         child: Padding(
@@ -51,9 +57,9 @@ class _DropdownBarState extends State<DropdownBar> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            children: <Widget>[
               Text(
-                  widget.type == "LANGUAGE"
+                  widget.type == 'LANGUAGE'
                       ? eventFilter.selectedLanguage
                       : eventFilter.selectedProficiency,
                   style: defaultBoldTextStyle),
