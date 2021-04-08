@@ -9,7 +9,11 @@ abstract class DataService {
 
   //get
   Future<String> getPhotoUrl(DuolingoUser user);
-  Future<List<Event>> getAllEvent();
-
+  
+  Stream<List<Event>> getEventsByFilter(String language, String level);
+  Future<bool> eventReservation(String userId, String eventId, int reservationCount);
+  Future<bool> cancelEventReservation(String reservationId, String eventId, String userId, int reservationCount);
+  Future<Map<String, Object>> isUserAttend(String userId, String eventId);
+  
   void dispose();
 }
