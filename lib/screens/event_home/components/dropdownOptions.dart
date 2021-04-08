@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/provider/eventFilter.dart';
+import 'package:duolingo_event_app/screens/event_home/event_home_screen.dart';
 
 class LanguageOptionValues extends StatefulWidget {
   const LanguageOptionValues({Key key, this.languageValues}) : super(key: key);
@@ -35,7 +36,8 @@ class _LanguageOptionValuesState extends State<LanguageOptionValues> {
                   type: "LANGUAGE",
                   onPressed: () {
                     eventFilter.selectLanguage(languageLabel.toUpperCase());
-                    Navigator.of(context).pushNamed('/home');
+                    Navigator.of(context).pop();
+                    Navigator.popAndPushNamed(context, '/home');
                   });
             },
           ),
@@ -78,7 +80,8 @@ class _ProficiencyOptionValuesState extends State<ProficiencyOptionValues> {
                       type: "PROFICIENCY",
                       onPressed: () {
                         eventFilter.selectProficiency(level);
-                        Navigator.of(context).pushNamed('/home');
+                        Navigator.of(context).pop();
+                        Navigator.popAndPushNamed(context, '/home');
                       })
               ],
             ),

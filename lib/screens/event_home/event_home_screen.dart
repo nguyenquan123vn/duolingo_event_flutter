@@ -19,6 +19,11 @@ class EventsScreen extends StatefulWidget {
 
 class _EventsScreenState extends State<EventsScreen> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     GlobalKey<ScaffoldState> _key = GlobalKey();
     final user = context.read<DuolingoUser>();

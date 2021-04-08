@@ -12,6 +12,11 @@ class EventList extends StatefulWidget {
 
 class _EventListState extends State<EventList> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     DataService data = context.read<DataService>();
     //Mock list of event data
@@ -126,11 +131,11 @@ class _EventListState extends State<EventList> {
         stream: data.getEventsByFilter(
             eventFilter.selectedLanguage, eventFilter.selectedProficiency),
         initialData: [],
-        builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+        builder: (context, snapshot) {
           if (snapshot.hasData) {
             if (snapshot.data.isEmpty) {
               return Center(
-                child: CircularProgressIndicator(),
+                child: Text("No event found"),
               );
             } else {
               return ListView.builder(
