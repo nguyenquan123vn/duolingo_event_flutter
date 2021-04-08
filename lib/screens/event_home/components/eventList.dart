@@ -129,7 +129,9 @@ class _EventListState extends State<EventList> {
         builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
           if (snapshot.hasData) {
             if (snapshot.data.isEmpty) {
-              return Center(child: Text('No event found!!'));
+              return Center(
+                child: CircularProgressIndicator(),
+              );
             } else {
               return ListView.builder(
                 itemCount: snapshot.data.length,

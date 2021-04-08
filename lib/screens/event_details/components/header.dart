@@ -64,7 +64,7 @@ class _HeaderState extends State<Header> {
                 return Button(
                   label: widget.spotLeft != 0
                       ? isAttendOnClick || isAttend
-                          ? "ATTEND"
+                          ? "ATTENDED"
                           : "RESERVE SPOT"
                       : "IS FULL",
                   type: widget.spotLeft != 0
@@ -73,22 +73,25 @@ class _HeaderState extends State<Header> {
                           : "PRIMARY"
                       : "WHITE",
                   onPressed: () async {
-                    widget.spotLeft != 0 
-                    ? isAttendOnClick || isAttend
-                        ? await data
-                            .cancelEventReservation(
-                                reservationId,
-                                widget.eventId,
-                                user.uid,
-                                widget.reservationCount)
-                            .then((value) =>
-                                setState(() => isAttendOnClick = value))
-                        : await data
-                            .eventReservation(user.uid, widget.eventId,
-                                widget.reservationCount) //số người tham gia chưa cập nhật sau khi reserve/cancel => tham số reservationCount sai => cập nhật firestore sai; 
-                            .then((value) =>
-                                setState(() => isAttendOnClick = value))
-                      : null;
+                    widget.spotLeft != 0
+                        ? isAttendOnClick || isAttend
+                            ? await data
+                                .cancelEventReservation(
+                                    reservationId,
+                                    widget.eventId,
+                                    user.uid,
+                                    widget.reservationCount)
+                                .then((value) =>
+                                    setState(() => isAttendOnClick = value))
+                            : await data
+                                .eventReservation(
+                                    user.uid,
+                                    widget.eventId,
+                                    widget
+                                        .reservationCount) //số người tham gia chưa cập nhật sau khi reserve/cancel => tham số reservationCount sai => cập nhật firestore sai;
+                                .then((value) =>
+                                    setState(() => isAttendOnClick = value))
+                        : null;
                   },
                 );
               } else {

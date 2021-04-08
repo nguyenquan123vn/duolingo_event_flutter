@@ -6,7 +6,7 @@ class Event {
   final String description;
   final int duration;
   final String eventId;
-  final int hostId;
+  final String hostId;
   final String language;
   final String recurrencePattern;
   final int reservationCount;
