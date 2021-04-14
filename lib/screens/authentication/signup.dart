@@ -1,9 +1,9 @@
 import 'package:duolingo_event_app/service/authentication/authentication_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/global/widget/button.dart';
+import 'package:duolingo_event_app/service/data_services/data_service.dart';
 import 'components/input.dart';
 import 'components/socialLogin.dart';
 
@@ -23,6 +23,7 @@ class _SignUp extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     AuthService auth = context.read<AuthService>();
+    DataService data = context.read<DataService>();
 
     return Scaffold(
       body: Padding(
@@ -63,6 +64,8 @@ class _SignUp extends State<SignUp> {
                         _password.currentState.validate()) {
                       auth.createUserWithEmailAndPassword(
                           _emailController.text, _passwordController.text);
+                      data.createUserInDatabaseWithEmail(auth.currentUser);
+                      print('OK');
                     }
                   },
                 ),

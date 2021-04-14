@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:duolingo_event_app/models/duolingoUser.dart';
 
 abstract class AuthService {
-  Future<DuolingoUser> currentUser();
+  DuolingoUser get currentUser;
   Future<DuolingoUser> signInWithEmailAndPassword(
       String email, String password);
   Future<DuolingoUser> createUserWithEmailAndPassword(

@@ -27,8 +27,9 @@ class MyApp extends StatelessWidget {
         Provider<AuthService>(
             create: (_) => FirebaseAuthService(),
             dispose: (_, AuthService authService) => authService.dispose()),
-        Provider<DataService>(create: (_) => FirebaseDataService()),
-        //dispose: (_, DataService dataService) => dataService.dispose()),
+        Provider<DataService>(
+            create: (_) => FirebaseDataService(),
+            dispose: (_, DataService dataService) => dataService.dispose()),
         ChangeNotifierProvider(create: (context) => EventFilter()),
       ],
       child: AuthWidgetBuilder(builder:

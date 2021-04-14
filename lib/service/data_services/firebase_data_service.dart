@@ -13,8 +13,26 @@ class FirebaseDataService implements DataService {
   static const String event_collection = 'event';
   static const String reservation_collection = 'reservation';
 
-  void createUserInDatabaseWithEmail(DuolingoUser user) async {}
-  void createUserInDatabaseWithGoogleProvider(DuolingoUser user) async {}
+  static const String user_displayName = 'displayName';
+  static const String user_photoURL = 'photoURL';
+  static const String user_email = 'email';
+
+  Future<void> createUserInDatabaseWithEmail(DuolingoUser user) async {
+    await firestore.collection(user_collection).doc(user.uid).set({
+      user_displayName: user.displayName,
+      user_email: user.email,
+      user_photoURL: user.photoURL
+    }).whenComplete(() => print('Created with email'));
+  }
+
+  void createUserInDatabaseWithGoogleProvider(DuolingoUser user) async {
+    await firestore.collection(user_collection).doc(user.uid).set({
+      user_displayName: user.displayName,
+      user_email: user.email,
+      user_photoURL: user.photoURL
+    }).whenComplete(() => print('Created with email'));
+  }
+
   void createUserInDatabaseWithFacebook(DuolingoUser user) async {}
 
   //get
@@ -123,7 +141,7 @@ class FirebaseDataService implements DataService {
         }
       }
     });
-    
+
     return userIdList.contains(userId);
   }
 

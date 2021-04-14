@@ -9,21 +9,11 @@ import 'package:google_sign_in/google_sign_in.dart';
 class FirebaseAuthService implements AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  DuolingoUser _userFromFirebase(User user) {
-    if (user == null) {
-      return null;
-    }
-    return DuolingoUser(
-      uid: user.uid,
-      email: user.email,
-      photoURL: user.photoURL,
-      displayName: user.displayName,
-    );
-  }
-
   @override
   Stream<DuolingoUser> get onAuthStateChanged {
-    return _firebaseAuth.authStateChanges().map(_userFromFirebase);
+    return _firebaseAuth
+        .authStateChanges()
+        .map((user) => DuolingoUser.fromFirebaseUser(user));
   }
 
   @override
@@ -34,7 +24,7 @@ class FirebaseAuthService implements AuthService {
       email: email,
       password: password,
     );
-    return _userFromFirebase(userCredential.user);
+    return DuolingoUser.fromFirebaseUser(userCredential.user);
   }
 
   @override
@@ -42,7 +32,7 @@ class FirebaseAuthService implements AuthService {
       String email, String password) async {
     final UserCredential userCredential = await _firebaseAuth
         .createUserWithEmailAndPassword(email: email, password: password);
-    return _userFromFirebase(userCredential.user);
+    return DuolingoUser.fromFirebaseUser(userCredential.user);
   }
 
   @override
@@ -55,7 +45,7 @@ class FirebaseAuthService implements AuthService {
       {String email, String link}) async {
     final UserCredential userCredential =
         await _firebaseAuth.signInWithEmailLink(email: email, emailLink: link);
-    return _userFromFirebase(userCredential.user);
+    return DuolingoUser.fromFirebaseUser(userCredential.user);
   }
 
   @override
@@ -100,7 +90,7 @@ class FirebaseAuthService implements AuthService {
           idToken: googleAuth.idToken,
           accessToken: googleAuth.accessToken,
         ));
-        return _userFromFirebase(userCredential.user);
+        return DuolingoUser.fromFirebaseUser(userCredential.user);
       } else {
         throw PlatformException(
             code: 'ERROR_MISSING_GOOGLE_AUTH_TOKEN',
@@ -125,7 +115,7 @@ class FirebaseAuthService implements AuthService {
         final userCredential = await _firebaseAuth.signInWithCredential(
           FacebookAuthProvider.credential(accessToken.token),
         );
-        return _userFromFirebase(userCredential.user);
+        return DuolingoUser.fromFirebaseUser(userCredential.user);
       case FacebookLoginStatus.cancel:
         throw FirebaseAuthException(
           code: 'ERROR_ABORTED_BY_USER',
@@ -142,9 +132,8 @@ class FirebaseAuthService implements AuthService {
   }
 
   @override
-  Future<DuolingoUser> currentUser() async {
-    return _userFromFirebase(_firebaseAuth.currentUser);
-  }
+  DuolingoUser get currentUser =>
+      DuolingoUser.fromFirebaseUser(_firebaseAuth.currentUser);
 
   @override
   Future<void> signOut() async {
