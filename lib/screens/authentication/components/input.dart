@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
 
+class EmailPasswordFieldValidator {
+  static String validate(String value) {
+    return (value.isEmpty) ? 'This information should not be empty!' : null;
+  }
+}
+
 class InputBuilder extends StatefulWidget {
   const InputBuilder({
     Key key,
@@ -39,12 +45,7 @@ class _InputBuilderState extends State<InputBuilder> {
       child: Form(
         key: widget.formKey,
         child: TextFormField(
-          validator: (value) {
-            if (value.isEmpty) {
-              return '${widget.label} should not empty!';
-            }
-            return null;
-          },
+          validator: EmailPasswordFieldValidator.validate,
           controller: widget.controller,
           decoration: InputDecoration(
             border: OutlineInputBorder(
