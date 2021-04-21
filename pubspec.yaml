@@ -23,17 +23,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts: ^2.0.0
   provider: ^5.0.0
   flutter_login_facebook: ^1.0.1
   google_sign_in: ^5.0.1
   cloud_firestore: ^1.0.0 # new
   firebase_auth: ^1.0.0
-  mockito: ^5.0.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  test: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
