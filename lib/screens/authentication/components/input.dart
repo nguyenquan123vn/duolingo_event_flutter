@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
-
-class EmailPasswordFieldValidator {
-  static String validate(String value) {
-    return (value.isEmpty) ? 'This information should not be empty!' : null;
-  }
-}
+import 'package:duolingo_event_app/screens/authentication/components/validator.dart';
 
 class InputBuilder extends StatefulWidget {
   const InputBuilder({
@@ -19,12 +14,7 @@ class InputBuilder extends StatefulWidget {
   final TextEditingController controller;
   final GlobalKey formKey;
 
-  @override
-  _InputBuilderState createState() => _InputBuilderState();
-}
-
-class _InputBuilderState extends State<InputBuilder> {
-  Icon _suffixIconSwitch(label) {
+  Icon get suffixIconSwitch {
     switch (label) {
       case 'Password':
         return Icon(Icons.lock, color: iconColor);
@@ -38,6 +28,25 @@ class _InputBuilderState extends State<InputBuilder> {
     }
   }
 
+  Function get labelValidate {
+    switch (label) {
+      case 'Password':
+        return EmailPasswordFieldValidator.passwordValidate;
+      case 'Email':
+        return EmailPasswordFieldValidator.emailValidate;
+      case 'Username':
+        return EmailPasswordFieldValidator.usernameValidate;
+        break;
+      default:
+        return null;
+    }
+  }
+
+  @override
+  _InputBuilderState createState() => _InputBuilderState();
+}
+
+class _InputBuilderState extends State<InputBuilder> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,7 +54,7 @@ class _InputBuilderState extends State<InputBuilder> {
       child: Form(
         key: widget.formKey,
         child: TextFormField(
-          validator: EmailPasswordFieldValidator.validate,
+          validator: widget.labelValidate,
           controller: widget.controller,
           decoration: InputDecoration(
             border: OutlineInputBorder(
@@ -58,7 +67,7 @@ class _InputBuilderState extends State<InputBuilder> {
             hintText: widget.label,
             hintStyle: defaultBoldWashTextStyle,
             errorStyle: dangerTextStyle,
-            suffixIcon: _suffixIconSwitch(widget.label),
+            suffixIcon: widget.suffixIconSwitch,
           ),
           obscureText: widget.label == 'Password' ? true : false,
         ),
