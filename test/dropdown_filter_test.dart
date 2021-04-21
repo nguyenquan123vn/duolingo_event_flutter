@@ -1,4 +1,4 @@
-import 'package:duolingo_event_app]provider/eventFilter.dart";
+import 'package:duolingo_event_app]provider/eventFilter.dart';
 import 'package:duolingo_event_app/screens/event_home/components/dropdownBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
