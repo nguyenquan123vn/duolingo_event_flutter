@@ -32,6 +32,7 @@ class _EventsScreenState extends State<EventsScreen> {
       child: Scaffold(
         key: _key,
         appBar: DuolingoAppBar(
+            key: Key('avatar'),
             avatarOnpressed: () => _key.currentState.openDrawer()),
         drawer: DuolingoDrawer(),
         body: Padding(

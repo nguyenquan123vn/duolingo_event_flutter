@@ -10,7 +10,7 @@ void main() {
 
     final emailField = find.byValueKey('email_field');
     final passwordField = find.byValueKey('password_field');
-    final loginBtn = find.byValueKey('loginBtn');
+    final loginBtn = find.byValueKey('login_button');
     final duolingo_text = find.byValueKey('duolingo');
 
     setUpAll(() async {
@@ -42,10 +42,10 @@ void main() {
       await driver.tap(passwordField);
       print('tap password');
       await driver.enterText('123456');
+      await driver.waitFor(find.text('123456'));
       print('enter password');
       await driver.tap(loginBtn);
       print('login');
-      //expect(await driver.getText(duolingo_text), 'ｄｕｏｌｉｎｇｏ  ');
-    }, timeout: Timeout(Duration(seconds: 10)));
+    });
   });
 }

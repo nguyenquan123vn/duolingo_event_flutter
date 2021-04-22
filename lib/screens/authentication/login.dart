@@ -52,7 +52,7 @@ class _Login extends State<Login> {
                 Button(
                   label: 'LOGIN',
                   type: 'PRIMARY',
-                  key: Key('loginBtn'),
+                  key: Key('login_button'),
                   onPressed: () {
                     if (_email.currentState.validate() &&
                         _password.currentState.validate()) {
