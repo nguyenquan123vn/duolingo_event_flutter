@@ -40,25 +40,25 @@ class _Login extends State<Login> {
                   ),
                 ),
                 InputBuilder(
-                  label: 'Email',
-                  controller: _emailController,
-                  formKey: _email,
-                ),
+                    label: 'Email',
+                    controller: _emailController,
+                    formKey: _email,
+                    key: Key('email_field')),
                 InputBuilder(
-                  label: 'Password',
-                  controller: _passwordController,
-                  formKey: _password,
-                ),
+                    label: 'Password',
+                    controller: _passwordController,
+                    formKey: _password,
+                    key: Key('password_field')),
                 Button(
                   label: 'LOGIN',
                   type: 'PRIMARY',
+                  key: Key('loginBtn'),
                   onPressed: () {
                     if (_email.currentState.validate() &&
                         _password.currentState.validate()) {
                       auth.signInWithEmailAndPassword(
                           _emailController.text, _passwordController.text);
-                      data.createUserInDatabaseWithGoogleProvider(
-                          auth.currentUser);
+                      // data.createUserInDatabaseWithEmail(auth.currentUser);
                     }
                   },
                 ),

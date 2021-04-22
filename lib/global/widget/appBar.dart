@@ -38,6 +38,7 @@ class _DuolingoAppBarState extends State<DuolingoAppBar> {
             Expanded(
               flex: 3,
               child: RichText(
+                key: Key('Duolingo'),
                 text: TextSpan(
                   text: 'ｄｕｏｌｉｎｇｏ  ',
                   style: appBarTextStyle,

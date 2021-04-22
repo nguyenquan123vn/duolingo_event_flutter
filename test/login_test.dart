@@ -1,17 +1,20 @@
+import 'package:duolingo_event_app/service/authentication/authentication_service.dart';
 import 'package:duolingo_event_app/service/authentication/firebase_auth_service.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:duolingo_event_app/models/duolingoUser.dart';
 
 void main() {
-  final auth = FirebaseAuthService();
+  TestWidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
+  AuthService auth;
 
-  //test 1
+  setUp(() {
+    auth = FirebaseAuthService();
+  });
   test('Login with email and password', () async {
     DuolingoUser user =
         await auth.signInWithEmailAndPassword('quan@gmail.com', '123456');
     expect(user.uid, 'JCyxTRCdQ5aIOSDRbCniBvofeE13');
   });
-
-  //test 2
-  test('Login with', () async {});
 }
