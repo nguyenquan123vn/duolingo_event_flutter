@@ -15,4 +15,5 @@ Duolingo Events is a software that small language gatherings are hosted by fluen
 
 # Testing result:
 Unit testing result:
-<img src="https://github.com/nguyenquan123vn/duolingo_event_flutter/blob/master/assets/Screenshot/unit_testing_pass.PNG" witdth="300">
+
+<img src="https://github.com/nguyenquan123vn/duolingo_event_flutter/blob/master/assets/Screenshot/unit_testing_pass.PNG" witdth="300" height="300">
