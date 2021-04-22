@@ -16,11 +16,12 @@ void main() {
     setUpAll(() async {
       driver = await FlutterDriver.connect();
     });
-    /*
-    setUp(() {
+
+    /*setUp(() {
       auth = FirebaseAuthService();
     });
     */
+
     tearDownAll(() async {
       if (driver != null) {
         driver.close();
@@ -34,17 +35,11 @@ void main() {
 
     test('Login with email and password', () async {
       await driver.tap(emailField);
-      print('tap email');
-      await driver.enterText('quan@gmnail.com');
-      print('enter text');
+      await driver.enterText('quan@gmail.com');
       //await driver.waitForAbsent(find.text('quan@gmail.com'));
-      print('ok');
       await driver.tap(passwordField);
-      print('tap password');
       await driver.enterText('123456');
-      print('enter password');
       await driver.tap(loginBtn);
-      print('login');
       //expect(await driver.getText(duolingo_text), 'ｄｕｏｌｉｎｇｏ  ');
     }, timeout: Timeout(Duration(seconds: 10)));
   });
