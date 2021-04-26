@@ -1,0 +1,10 @@
+/*role="link" onclick="window.location='https://es.duolingo.com/register'"*/
+@keyframes example {
+  0%   {
+    transform: translate(0,0);
+  }
+  100% {
+    transform: translate(0,3px);
+    box-shadow: none;
+  }
+}
