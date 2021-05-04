@@ -1,3 +1,4 @@
+import 'package:duolingo_event_app/screens/attended_event/attended_event_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/authentication/signUp.dart';
 import 'screens/event_details/event_detail.dart';
@@ -12,6 +13,7 @@ class RouteGenerator {
   static const eventDetailPage = '/detail';
   static const hostDetail = '/host';
   static const applyHost = '/apply';
+  static const attendedEvent = '/attended';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -29,6 +31,8 @@ class RouteGenerator {
         return MaterialPageRoute<dynamic>(builder: (_) => HostDetail());
       case RouteGenerator.applyHost:
         return MaterialPageRoute<dynamic>(builder: (_) => ApplyHost());
+      case RouteGenerator.attendedEvent:
+        return MaterialPageRoute<dynamic>(builder: (_) => AttendedEventScreen());
       default:
         return _errorRoute();
     }
