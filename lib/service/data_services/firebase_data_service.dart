@@ -38,6 +38,43 @@ class FirebaseDataService implements DataService {
   //get
   Future<String> getPhotoUrl(DuolingoUser user) {}
 
+  // get events by user
+  Future<List<Event>> getEventsByUser(String userId) async {
+    List<String> eventIdList = <String>[];
+    List<Event> eventList = <Event>[];
+
+    await firestore
+        .collection(reservation_collection)
+        .where("userId", isEqualTo: userId)
+        .get()
+        .then((snapshot) {
+      List documents = snapshot.docs;
+      for (QueryDocumentSnapshot doc in documents) {
+        if (doc.exists) {
+          eventIdList.add(doc.data()['eventId']);
+        }
+      }
+    });
+
+    for (String eventId in eventIdList) {
+        await firestore
+          .collection(event_collection)
+          .where("eventId", isEqualTo: eventId)
+          .get()
+          .then((snapshot) {
+        List documents = snapshot.docs;
+        for (QueryDocumentSnapshot doc in documents) {
+          if (doc.exists) {
+            Event attendedEvent = Event.fromMap(doc.data());
+            eventList.add(attendedEvent);
+          }
+        }
+      });
+    }
+    
+    return eventList;
+  }
+
   // get events by filter
   List<Event> _eventsByFilterFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) => Event.fromMap(doc.data())).toList();
