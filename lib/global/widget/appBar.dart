@@ -37,17 +37,20 @@ class _DuolingoAppBarState extends State<DuolingoAppBar> {
           children: <Widget>[
             Expanded(
               flex: 3,
-              child: RichText(
-                key: Key('Duolingo'),
-                text: TextSpan(
-                  text: 'ｄｕｏｌｉｎｇｏ  ',
-                  style: appBarTextStyle,
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'ｅｖｅｎｔｓ',
-                      style: appBarTextStyleNormal,
-                    ),
-                  ],
+              child: InkWell(
+                onTap: () => Navigator.of(context).pushNamed('/home'),
+                child: RichText(
+                  key: Key('Duolingo'),
+                  text: TextSpan(
+                    text: 'ｄｕｏｌｉｎｇｏ  ',
+                    style: appBarTextStyle,
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'ｅｖｅｎｔｓ',
+                        style: appBarTextStyleNormal,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
