@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
-import './button.dart';
 import 'avatar.dart';
 import 'package:duolingo_event_app/service/authentication/authentication_service.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +13,6 @@ class DuolingoDrawer extends StatefulWidget implements PreferredSizeWidget {
   _DuolingoDrawerState createState() => _DuolingoDrawerState();
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => throw UnimplementedError();
 }
 
@@ -47,17 +45,25 @@ class _DuolingoDrawerState extends State<DuolingoDrawer> {
                 decoration: BoxDecoration(
                     color: defaultBrandColor,
                     borderRadius: BorderRadius.all(Radius.circular(8.0)))),
-            SizedBox(height: 8.0),
-            Button(
-              label: 'Settings',
-              type: 'PRIMARY',
-              onPressed: () {},
-            ),
             SizedBox(height: 16.0),
-            Button(
-                label: 'Logout',
-                type: 'PRIMARY',
-                onPressed: () => auth.signOut()),
+            ListTile(
+                leading: Icon(Icons.settings),
+                title: Text("Settings"),
+              ),
+            SizedBox(height: 16.0),
+            ListTile(
+                leading: Icon(Icons.view_list_outlined),
+                title: Text("Attended events"),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/attended');
+                },
+              ),
+            SizedBox(height: 16.0),
+            ListTile(
+                leading: Icon(Icons.logout),
+                title: Text("Logout"),
+                onTap: () => auth.signOut(),
+              ),
           ],
         ),
       ),
