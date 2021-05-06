@@ -77,7 +77,7 @@ class FirebaseAuthService implements AuthService {
   }
 
   //do not delete below code, commented out for web google login
-  /* 
+  
   @override
   Future<DuolingoUser> signInWithGoogle() async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -103,8 +103,8 @@ class FirebaseAuthService implements AuthService {
           code: 'ERROR_ABORTED_BY_USER', message: 'Sign in aborted by user');
     }
   }
-  */
-
+  
+/*
   @override
   Future<DuolingoUser> signInWithGoogle() async {
     GoogleAuthProvider googleProvider = GoogleAuthProvider();
@@ -117,7 +117,7 @@ class FirebaseAuthService implements AuthService {
     // Once signed in, return the UserCredential
     return DuolingoUser.fromFirebaseUser(user.user);
   }
-
+*/
   @override
   Future<DuolingoUser> signInWithFacebook() async {
     final fb = FacebookLogin();
