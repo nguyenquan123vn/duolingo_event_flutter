@@ -47,23 +47,24 @@ class _DuolingoDrawerState extends State<DuolingoDrawer> {
                     borderRadius: BorderRadius.all(Radius.circular(8.0)))),
             SizedBox(height: 16.0),
             ListTile(
-                leading: Icon(Icons.settings),
-                title: Text("Settings"),
-              ),
+              leading: Icon(Icons.settings),
+              title: Text("Settings"),
+            ),
             SizedBox(height: 16.0),
             ListTile(
-                leading: Icon(Icons.view_list_outlined),
-                title: Text("Attended events"),
-                onTap: () {
-                  Navigator.of(context).pushNamed('/attended');
-                },
-              ),
+              leading: Icon(Icons.view_list_outlined),
+              title: Text("Attended events"),
+              onTap: () {
+                Navigator.of(context).pushNamed('/attended');
+              },
+            ),
             SizedBox(height: 16.0),
             ListTile(
-                leading: Icon(Icons.logout),
-                title: Text("Logout"),
-                onTap: () => auth.signOut(),
-              ),
+              leading: Icon(Icons.logout),
+              title: Text("Logout"),
+              key: Key('logout'),
+              onTap: () => auth.signOut(),
+            ),
           ],
         ),
       ),

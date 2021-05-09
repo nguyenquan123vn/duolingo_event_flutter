@@ -11,7 +11,9 @@ void main() {
     final emailField = find.byValueKey('email_field');
     final passwordField = find.byValueKey('password_field');
     final loginBtn = find.byValueKey('login_button');
-    final duolingo_text = find.byValueKey('duolingo');
+    final appBar = find.byValueKey('appBar');
+    final logoutBtn = find.byValueKey('logout');
+    final avatar = find.byValueKey('avatar');
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -43,6 +45,18 @@ void main() {
       print('enter password');
       await driver.tap(loginBtn);
       print('login');
+      await (driver.waitFor(avatar));
+      print('ok');
+    });
+
+    test('Logout', () async {
+      await driver.tap(avatar);
+      await driver.tap(logoutBtn);
+      await driver.waitFor(emailField);
+    });
+
+    test('Create new account', () async {
+      //await driver.tap()
     });
   });
 }

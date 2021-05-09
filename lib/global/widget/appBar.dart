@@ -65,6 +65,7 @@ class _DuolingoAppBarState extends State<DuolingoAppBar> {
               //     ),
               onTap: () => widget.avatarOnpressed(),
               child: Avatar(
+                key: Key('avatar'),
                 url: auth.currentUser.photoURL,
                 size: 20.0,
               ),
