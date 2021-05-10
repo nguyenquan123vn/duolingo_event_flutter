@@ -29,22 +29,21 @@ class _AttendedEventListState extends State<AttendedEventList> {
             if (snapshot.data.isNotEmpty) {
               return ListView.builder(
                 itemCount: snapshot.data.length,
-                itemBuilder: (context, index) =>
-                    AttendedEventTile(event: snapshot.data[index]),
+                itemBuilder: (context, index) => AttendedEventTile(
+                    event: snapshot.data[index], key: Key('attended_$index')),
               );
             } else {
               return Center(
                   child: Column(
                 children: [
-                  Text(
-                    'Looks like you have not attended any events yet !!',
-                  ),
+                  Text('Looks like you have not attended any events yet !!'),
                   SizedBox(height: 24.0),
                   Container(
                     width: 180,
                     child: Button(
                       label: 'Discover all events now !!',
                       type: 'WHITE',
+                      key: Key('discover_button'),
                       onPressed: () => Navigator.of(context).pushNamed('/home'),
                     ),
                   )

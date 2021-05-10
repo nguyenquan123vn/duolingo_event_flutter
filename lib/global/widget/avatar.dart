@@ -15,7 +15,10 @@ class Avatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: washTextColor,
-      backgroundImage: (url == null) ? null : NetworkImage(url),
+      backgroundImage: (url == null)
+          ? NetworkImage(
+              'https://www.pikpng.com/pngl/m/80-805523_default-avatar-svg-png-icon-free-download-264157.png')
+          : NetworkImage(url),
       maxRadius: size,
     );
   }

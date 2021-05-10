@@ -1,9 +1,8 @@
-import 'package:duolingo_event_app/screens/attended_event/components/attendedEventTile.dart';
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('Testing', () {
+  group('Testing function: ', () {
     //AuthService auth;
     //Stream<DuolingoUser> onAuthStateChanged;
 
@@ -23,7 +22,7 @@ void main() {
     final signUpBtn = find.byValueKey('signup_button');
 
     final eventList = find.byValueKey('event_list');
-    final eventIndex = find.byValueKey('event_3');
+    final eventIndex = find.byValueKey('event_1');
     final homeBtn = find.byValueKey('home_button');
 
     final attendedBtn = find.byValueKey('attended_btn');
@@ -31,6 +30,9 @@ void main() {
 
     final attendEventNav = find.byValueKey('attend_event_nav');
     final attendedTitle = find.byValueKey('attended_title');
+
+    final attendedEvent = find.byValueKey('attended_0');
+    final discoverBtn = find.byValueKey('discover_button');
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
@@ -99,6 +101,20 @@ void main() {
       await driver.waitFor(attendEventNav);
       await driver.tap(attendEventNav);
       await driver.waitFor(attendedTitle);
+    });
+
+    test('Leave an event', () async {
+      await driver.tap(attendedEvent);
+      await driver.tap(attendedBtn);
+      await driver.tap(avatar);
+      await driver.tap(attendEventNav);
+      await driver.waitFor(discoverBtn);
+    });
+
+    test('Discover new events', () async {
+      await driver.tap(discoverBtn);
+      await driver.waitFor(eventList);
+      await driver.scrollUntilVisible(eventList, eventIndex, dyScroll: -30.0);
     });
   });
 }

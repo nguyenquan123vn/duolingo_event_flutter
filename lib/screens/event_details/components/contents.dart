@@ -8,13 +8,12 @@ import './header.dart';
 class Content extends StatelessWidget {
   const Content({
     Key key,
-    @required this.event,
+    //@required this.event,
   }) : super(key: key);
-
-  final Event event;
 
   @override
   Widget build(BuildContext context) {
+    Event event = ModalRoute.of(context).settings.arguments;
     return Expanded(
       child: ListView(
         children: <Widget>[

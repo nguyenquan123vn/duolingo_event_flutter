@@ -2,7 +2,6 @@ import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/global/widget/appBar.dart';
 import 'package:duolingo_event_app/global/widget/drawer.dart';
 import 'package:flutter/material.dart';
-
 import 'components/attendedEventList.dart';
 
 class AttendedEventScreen extends StatefulWidget {
@@ -19,7 +18,6 @@ class _AttendedEventScreenState extends State<AttendedEventScreen> {
       child: Scaffold(
           key: _key,
           appBar: DuolingoAppBar(
-              key: Key('avatar'),
               avatarOnpressed: () => _key.currentState.openDrawer()),
           drawer: DuolingoDrawer(),
           body: Padding(

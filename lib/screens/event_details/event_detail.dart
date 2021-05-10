@@ -1,3 +1,4 @@
+import 'package:duolingo_event_app/global/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:duolingo_event_app/global/style.dart';
 import 'package:duolingo_event_app/global/widget/appBar.dart';
@@ -12,11 +13,15 @@ class EventDetail extends StatefulWidget {
 class _EventDetailState extends State<EventDetail> {
   @override
   Widget build(BuildContext context) {
+    GlobalKey<ScaffoldState> _key = GlobalKey();
     Event event = ModalRoute.of(context).settings.arguments;
 
     return SafeArea(
       child: Scaffold(
-        appBar: DuolingoAppBar(),
+        key: _key,
+        appBar: DuolingoAppBar(
+            avatarOnpressed: () => _key.currentState.openDrawer()),
+        drawer: DuolingoDrawer(),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -24,7 +29,7 @@ class _EventDetailState extends State<EventDetail> {
               Row(
                 children: <Widget>[
                   InkWell(
-                    onTap: () => Navigator.of(context).pop(),
+                    onTap: () => Navigator.of(context).pushNamed('/home'),
                     child: Text(
                       "EVENTS HOME",
                       style: whiteBtnTextStyle,
@@ -38,7 +43,7 @@ class _EventDetailState extends State<EventDetail> {
                 ],
               ),
               SizedBox(height: 16.0),
-              Content(event: event),
+              Content(),
             ],
           ),
         ),
