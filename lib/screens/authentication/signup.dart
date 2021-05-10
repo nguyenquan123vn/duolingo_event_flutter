@@ -43,28 +43,32 @@ class _SignUp extends State<SignUp> {
                 InputBuilder(
                   label: 'Username',
                   controller: _usernameController,
+                  key: Key('username_signup'),
                   formKey: _username,
                 ),
                 InputBuilder(
                   label: 'Email',
                   controller: _emailController,
+                  key: Key('email_signup'),
                   formKey: _email,
                 ),
                 InputBuilder(
                   label: 'Password',
                   controller: _passwordController,
+                  key: Key('password_signup'),
                   formKey: _password,
                 ),
                 Button(
                   label: 'CREATE ACCOUNT',
                   type: 'PRIMARY',
+                  key: Key('signup_button'),
                   onPressed: () {
                     if (_username.currentState.validate() &&
                         _email.currentState.validate() &&
                         _password.currentState.validate()) {
                       auth.createUserWithEmailAndPassword(
                           _emailController.text, _passwordController.text);
-                      data.createUserInDatabaseWithEmail(auth.currentUser);
+                      //data.createUserInDatabaseWithEmail(auth.currentUser);
                       print('OK');
                     }
                   },

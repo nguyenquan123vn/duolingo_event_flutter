@@ -65,6 +65,7 @@ class _Login extends State<Login> {
                 Button(
                   label: 'CREATE ACCOUNT',
                   type: 'PRIMARY',
+                  key: Key('sign_up'),
                   onPressed: () =>
                       Navigator.of(context).pushReplacementNamed('/signup'),
                 ),

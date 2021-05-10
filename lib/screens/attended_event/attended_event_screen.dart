@@ -30,12 +30,11 @@ class _AttendedEventScreenState extends State<AttendedEventScreen> {
                 children: [
                   Text(
                     'Attended events',
+                    key: Key('attended_title'),
                     style: headerTextStyle,
                   ),
                   SizedBox(height: 24.0),
-                  Container(
-                    height: 300,
-                    child: AttendedEventList())
+                  Container(height: 300, child: AttendedEventList())
                 ],
               ),
             ),

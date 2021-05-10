@@ -31,9 +31,10 @@ class _EventListState extends State<EventList> {
           if (snapshot.hasData) {
             if (snapshot.data.isNotEmpty) {
               return ListView.builder(
+                key: Key('event_list'),
                 itemCount: snapshot.data.length,
-                itemBuilder: (context, index) =>
-                    EventTile(event: snapshot.data[index]),
+                itemBuilder: (context, index) => EventTile(
+                    event: snapshot.data[index], key: Key('event_$index')),
               );
             } else {
               return Center(

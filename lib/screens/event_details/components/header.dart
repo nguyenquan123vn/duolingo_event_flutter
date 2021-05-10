@@ -72,6 +72,11 @@ class _HeaderState extends State<Header> {
                           ? "HOST"
                           : "PRIMARY"
                       : "WHITE",
+                  key: widget.spotLeft != 0
+                      ? isAttendOnClick || isAttend
+                          ? Key('attended_btn')
+                          : Key('reverse_spot_btn')
+                      : Key('IS FULL'),
                   onPressed: () async {
                     widget.spotLeft != 0
                         ? isAttendOnClick || isAttend

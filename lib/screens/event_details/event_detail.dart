@@ -12,7 +12,6 @@ class EventDetail extends StatefulWidget {
 class _EventDetailState extends State<EventDetail> {
   @override
   Widget build(BuildContext context) {
-
     Event event = ModalRoute.of(context).settings.arguments;
 
     return SafeArea(
@@ -29,6 +28,7 @@ class _EventDetailState extends State<EventDetail> {
                     child: Text(
                       "EVENTS HOME",
                       style: whiteBtnTextStyle,
+                      key: Key('home_button'),
                     ),
                   ),
                   Text(

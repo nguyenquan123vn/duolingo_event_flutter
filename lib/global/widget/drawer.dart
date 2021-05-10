@@ -54,6 +54,7 @@ class _DuolingoDrawerState extends State<DuolingoDrawer> {
             ListTile(
               leading: Icon(Icons.view_list_outlined),
               title: Text("Attended events"),
+              key: Key('attend_event_nav'),
               onTap: () {
                 Navigator.of(context).pushNamed('/attended');
               },
