@@ -5,8 +5,7 @@ A mobile version clone of the website: [Duolingo Events Website](https://events.
 Gitpage introduction of the application: [Gitpage](https://nguyenquan123vn.github.io/duolingo_event_flutter/)
 
 Documentation of the application: [Duolingo Events Documentations](https://docs.google.com/document/d/118CK0JdzjU-NheT0sCFwnEEecE2gcJLuLZs-H3Q19aM/)
-A mobile version clone of the website: https://events.duolingo.com/ written in Flutter.
-Gitpage introduction of the application: https://nguyenquan123vn.github.io/duolingo_event_flutter/
+
 
 # Duolingo Events
 Duolingo Events is a software that small language gatherings are hosted by fluent speakers (event organizers) in a fun and relaxed environment where language learners around the world can connect and learn together easier.
